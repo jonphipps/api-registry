@@ -7,14 +7,22 @@
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
-	"dingo/api": "^0.10.0",
+	    "dingo/api": "^0.10.0",
         "barryvdh/laravel-debugbar": "^2.0",
-        "barryvdh/laravel-ide-helper": "^2.1"
+        "laracasts/flash": "dev-master",
+        "laravelcollective/html": "5.1.*@dev",
+        "bosnadev/repositories": "dev-master",
+        "mitulgolakiya/laravel-api-generator": "dev-master",
+        "doctrine/dbal": "2.5.*"
     },
     "repositories": [
         {
             "type": "git",
             "url": "git@github.com:jamisonvalenta/Laravel-4-Generators.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/mitulgolakiya/laracast-flash"
         }
     ],
     "require-dev": {
@@ -23,7 +31,8 @@
         "phpunit/phpunit": "~4.0",
         "phpspec/phpspec": "~2.1",
         "xethron/migrations-generator": "dev-l5",
-        "way/generators": "dev-feature/laravel-five-stable"
+        "way/generators": "dev-feature/laravel-five-stable",
+        "barryvdh/laravel-ide-helper": "^2.1"
     },
     "autoload": {
         "classmap": [
