@@ -48,17 +48,17 @@ class Profile extends Model
         return $this->belongsTo('App\Models\User', 'deleted_by', 'id');
     }
 
-    public function profileProperty()
+    public function profileProperties()
     {
         return $this->hasMany('App\Models\ProfileProperty', 'profile_id', 'id');
     }
 
-    public function Schema()
+    public function Schemas()
     {
         return $this->hasMany('App\Models\Schema', 'profile_id', 'id');
     }
 
-    public function Vocabulary()
+    public function Vocabularies()
     {
         return $this->hasMany('App\Models\Vocabulary', 'profile_id', 'id');
     }

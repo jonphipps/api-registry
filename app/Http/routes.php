@@ -50,25 +50,29 @@ Route::get('/langs', function () {
     return view('welcome');
 });
 
-$api = app('Dingo\Api\Routing\Router');
-$api->version('v1', function ($api) {
-    //$api->get('vocabs/{id}', 'App\Api\Controllers\VocabController@show');
-});
+Route::get('/generate/models', '\\Jimbolino\\Laravel\\ModelBuilder\\ModelGenerator5@start');
+
+//$api = app('Dingo\Api\Routing\Router');
+//$api->version('v1', function ($api) {
+//    $api->get('vocabs/{id}', 'App\Api\Controllers\VocabController@show');
+//include_once __DIR__ . '/api_routes.php';
+//
+//});
 
 
-/*
-|--------------------------------------------------------------------------
-| API routes
-|--------------------------------------------------------------------------
-*/
-
-Route::group(['prefix' => 'api', 'namespace' => 'API'], function ()
-{
-	Route::group(['prefix' => 'v1'], function ()
-	{
-        require Config::get('generator.path_api_routes');
-	});
-});
+///*
+//|--------------------------------------------------------------------------
+//| API routes
+//|--------------------------------------------------------------------------
+//*/
+//
+//Route::group(['prefix' => 'api', 'namespace' => 'API'], function ()
+//{
+//	Route::group(['prefix' => 'v1'], function ()
+//	{
+//        require Config::get('generator.path_api_routes');
+//	});
+//});
 
 /*
 |--------------------------------------------------------------------------
@@ -78,11 +82,7 @@ Route::group(['prefix' => 'api', 'namespace' => 'API'], function ()
 
 $api = app('api.router');
 
-$api->group([
-    'version'   => '$API_VERSION$',
-    'prefix'    => '$API_PREFIX$',
-    'namespace' => '$API_CONTROLLER_NAMESPACE$',
-], function ($api)
+$api->version('v1', function ($api)
 {
     include_once __DIR__ . '/api_routes.php';
 
@@ -103,3 +103,125 @@ $api->group([
         return ['links' => $links];
     });
 });
+
+
+Route::resource('agents', 'AgentController');
+
+Route::get('agents/{id}/delete', [
+    'as' => 'agents.delete',
+    'uses' => 'AgentController@destroy',
+]);
+
+
+Route::resource('concepts', 'ConceptController');
+
+Route::get('concepts/{id}/delete', [
+    'as' => 'concepts.delete',
+    'uses' => 'ConceptController@destroy',
+]);
+
+
+Route::resource('conceptproperties', 'ConceptPropertyController');
+
+Route::get('conceptproperties/{id}/delete', [
+    'as' => 'conceptproperties.delete',
+    'uses' => 'ConceptPropertyController@destroy',
+]);
+
+
+Route::resource('conceptpropertyhistory', 'ConceptPropertyHistoryController');
+
+Route::get('conceptpropertyhistory/{id}/delete', [
+    'as' => 'conceptpropertyhistory.delete',
+    'uses' => 'ConceptPropertyHistoryController@destroy',
+]);
+
+
+Route::resource('elementsets', 'ElementSetController');
+
+Route::get('elementsets/{id}/delete', [
+    'as' => 'elementsets.delete',
+    'uses' => 'ElementSetController@destroy',
+]);
+
+
+Route::resource('elements', 'ElementController');
+
+Route::get('elements/{id}/delete', [
+    'as' => 'elements.delete',
+    'uses' => 'ElementController@destroy',
+]);
+
+
+Route::resource('elementproperties', 'ElementPropertyController');
+
+Route::get('elementproperties/{id}/delete', [
+    'as' => 'elementproperties.delete',
+    'uses' => 'ElementPropertyController@destroy',
+]);
+
+
+Route::resource('elementpropertyhistory', 'ElementPropertyHistoryController');
+
+Route::get('elementpropertyhistory/{id}/delete', [
+    'as' => 'elementpropertyhistory.delete',
+    'uses' => 'ElementPropertyHistoryController@destroy',
+]);
+
+
+Route::resource('fileimporthistory', 'FileImportHistoryController');
+
+Route::get('fileimporthistory/{id}/delete', [
+    'as' => 'fileimporthistory.delete',
+    'uses' => 'FileImportHistoryController@destroy',
+]);
+
+
+Route::resource('profiles', 'ProfileController');
+
+Route::get('profiles/{id}/delete', [
+    'as' => 'profiles.delete',
+    'uses' => 'ProfileController@destroy',
+]);
+
+
+Route::resource('profileproperties', 'ProfilePropertyController');
+
+Route::get('profileproperties/{id}/delete', [
+    'as' => 'profileproperties.delete',
+    'uses' => 'ProfilePropertyController@destroy',
+]);
+
+
+Route::resource('prefixes', 'PrefixController');
+
+Route::get('prefixes/{id}/delete', [
+    'as' => 'prefixes.delete',
+    'uses' => 'PrefixController@destroy',
+]);
+
+
+Route::resource('statuses', 'StatusController');
+
+Route::get('statuses/{id}/delete', [
+    'as' => 'statuses.delete',
+    'uses' => 'StatusController@destroy',
+]);
+
+
+Route::resource('users', 'UserController');
+
+Route::get('users/{id}/delete', [
+    'as' => 'users.delete',
+    'uses' => 'UserController@destroy',
+]);
+
+
+Route::resource('vocabularies', 'VocabularyController');
+
+Route::get('vocabularies/{id}/delete', [
+    'as' => 'vocabularies.delete',
+    'uses' => 'VocabularyController@destroy',
+]);
+
+

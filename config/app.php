@@ -141,8 +141,12 @@ return [
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
+        App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        /**
+         * Third party service providers
+         */
         Dingo\Api\Provider\LaravelServiceProvider::class,
         Way\Generators\GeneratorsServiceProvider::class,
         Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider::class,
@@ -151,6 +155,9 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
         Mitul\Generator\GeneratorServiceProvider::class,
+        GrahamCampbell\Exceptions\ExceptionsServiceProvider::class,
+        Culpa\CulpaServiceProvider::class,
+        Bestmomo\Scafold\ScafoldServiceProvider::class,
     ],
 
     /*
@@ -179,6 +186,7 @@ return [
         'Eloquent'  => Illuminate\Database\Eloquent\Model::class,
         'Event'     => Illuminate\Support\Facades\Event::class,
         'File'      => Illuminate\Support\Facades\File::class,
+        'Gate'      => Illuminate\Support\Facades\Gate::class,
         'Hash'      => Illuminate\Support\Facades\Hash::class,
         'Input'     => Illuminate\Support\Facades\Input::class,
         'Inspiring' => Illuminate\Foundation\Inspiring::class,

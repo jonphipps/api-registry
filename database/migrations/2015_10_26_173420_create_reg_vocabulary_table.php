@@ -36,6 +36,9 @@ class CreateRegVocabularyTable extends Migration {
 			$table->text('languages', 65535)->nullable();
 			$table->integer('profile_id')->nullable()->index('profile_id');
 			$table->enum('ns_type', array('hash','slash'))->default('slash');
+			$table->text('prefixes', 65535)->nullable();
+			$table->string('repos', 256)->nullable();
+			$table->string('repo', 256)->nullable();
 		});
 	}
 

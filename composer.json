@@ -4,17 +4,6 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
-    "require": {
-        "php": ">=5.5.9",
-        "laravel/framework": "5.1.*",
-	    "dingo/api": "^0.10.0",
-        "barryvdh/laravel-debugbar": "^2.0",
-        "laracasts/flash": "dev-master",
-        "laravelcollective/html": "5.1.*@dev",
-        "bosnadev/repositories": "dev-master",
-        "mitulgolakiya/laravel-api-generator": "dev-master",
-        "doctrine/dbal": "2.5.*"
-    },
     "repositories": [
         {
             "type": "git",
@@ -23,8 +12,33 @@
         {
             "type": "git",
             "url": "https://github.com/mitulgolakiya/laracast-flash"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/jonphipps/culpa"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/jonphipps/laravel-api-generator"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/jonphipps/Repositories"
         }
     ],
+    "require": {
+        "php": ">=5.5.9",
+        "laravel/framework": "5.1.*",
+        "dingo/api": "1.0.x@dev",
+        "barryvdh/laravel-debugbar": "^2.0",
+        "laracasts/flash": "dev-master",
+        "laravelcollective/html": "5.1.*@dev",
+        "bosnadev/repositories": "dev-master",
+        "mitulgolakiya/laravel-api-generator": "dev-master",
+        "graham-campbell/exceptions": "~5.0",
+        "rmasters/culpa": "dev-master",
+        "bestmomo/scafold": "dev-master"
+    },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
@@ -32,7 +46,9 @@
         "phpspec/phpspec": "~2.1",
         "xethron/migrations-generator": "dev-l5",
         "way/generators": "dev-feature/laravel-five-stable",
-        "barryvdh/laravel-ide-helper": "^2.1"
+        "barryvdh/laravel-ide-helper": "^2.1",
+        "doctrine/dbal": "2.5.*",
+        "jimbolino/laravel-model-builder" : "dev-master"
     },
     "autoload": {
         "classmap": [
@@ -56,6 +72,8 @@
             "php artisan clear-compiled"
         ],
         "post-update-cmd": [
+            "php artisan clear-compiled",
+            "php artisan ide-helper:generate",
             "php artisan optimize"
         ],
         "post-root-package-install": [

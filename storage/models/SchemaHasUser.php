@@ -19,7 +19,7 @@ class SchemaHasUser extends Model
         return array('deleted_at');
     }
 
-    protected $fillable = array('deleted_at', 'is_maintainer_for', 'is_istrar_for', 'is_admin_for', 'languages',
+    protected $fillable = array('deleted_at', 'is_maintainer_for', 'is_registrar_for', 'is_admin_for', 'languages',
         'default_language', 'current_language');
 
     public function Schema()
