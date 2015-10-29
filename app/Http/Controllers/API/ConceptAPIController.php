@@ -2,13 +2,20 @@
 
 use App\Http\Requests;
 use App\Libraries\Repositories\ConceptRepository;
+use App\Libraries\Transformers\ConceptTransformer;
 use App\Models\Concept;
+use Dingo\Api\Routing\Helpers;
+use Dingo\Api\Transformer\Adapter\Fractal;
+use Dingo\Api\Transformer\Binding;
 use Illuminate\Http\Request;
+use League\Fractal\Resource\Item;
 use Mitul\Controller\AppBaseController as AppBaseController;
 use Response;
 
 class ConceptAPIController extends AppBaseController
 {
+	use Helpers;
+
 	/** @var  ConceptRepository */
 	private $conceptRepository;
 
@@ -72,7 +79,31 @@ class ConceptAPIController extends AppBaseController
 	{
 		$concept = $this->conceptRepository->apiFindOrFail($id);
 
-		return $this->sendResponse($concept->toArray(), "Concept retrieved successfully");
+		//concept has to be transformed
+		$response = $this->response();
+		$item = $response->item($concept, new ConceptTransformer());
+		$resource = new Item($concept, new ConceptTransformer());
+
+		$properties = [];
+		foreach ($concept->ConceptProperties as $conceptProperty) {
+			if ($conceptProperty->profileProperty->has_language) {
+				$properties[$conceptProperty->language][$conceptProperty->ProfileProperty->name] = utf8_decode($conceptProperty->object);
+			}
+			else{
+				$properties[$conceptProperty->ProfileProperty->name] = utf8_decode($conceptProperty->object);
+
+			}
+
+		}
+		$result = [
+				'uri' =>$concept->uri,
+				'properties' => $properties,
+		];
+
+
+		//make sure we're sending utf-8
+		//sendResponse always sends json
+		return $this->sendResponse($result, "Concept retrieved successfully");
 	}
 
 	/**
