@@ -45,7 +45,7 @@ class ConceptRepository extends Repository
     public function apiFindOrFail($id)
     {
         /** @var \App\Models\Concept $model */
-        $model = $this->find($id);
+        $model = $this->model->with('ConceptProperties.ProfileProperty')->find($id);
 
         if(empty($model))
         {
@@ -55,10 +55,10 @@ class ConceptRepository extends Repository
         //$propertyRepo = new \App\Libraries\Repositories\ConceptPropertyRepository();
         //$properties = $model->ConceptProperties()->get();
         //$properties = $model::with('ConceptProperties.ProfileProperty')->get();
-        $properties = ConceptProperty::join('profile_property', 'profile_property.skos_id', '=', 'reg_concept_property.skos_property_id')->where('concept_id', $id)->get();
+        //$properties = ConceptProperty::join('profile_property', 'profile_property.skos_id', '=', 'reg_concept_property.skos_property_id')->where('concept_id', $id)->get();
         //$model2 = Concept::with('ConceptProperty')->get($id);
 
-        return $properties;
+        return $model;
     }
 
     public function apiDeleteOrFail($id)
