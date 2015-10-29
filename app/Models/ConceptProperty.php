@@ -56,7 +56,7 @@ class ConceptProperty extends Model
         return $this->belongsTo('App\Models\Concept', 'concept_id', 'id');
     }
 
-    public function profileProperty()
+    public function ProfileProperty()
     {
         return $this->belongsTo('App\Models\ProfileProperty', 'skos_property_id', 'skos_id');
     }
