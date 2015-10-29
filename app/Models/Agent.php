@@ -3,6 +3,48 @@
 use Illuminate\Database\Eloquent\Model as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * App\Models\Agent
+ *
+ * @property integer $id
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $last_updated
+ * @property \Carbon\Carbon $deleted_at
+ * @property string $org_email
+ * @property string $org_name
+ * @property string $ind_affiliation
+ * @property string $ind_role
+ * @property string $address1
+ * @property string $address2
+ * @property string $city
+ * @property string $state
+ * @property string $postal_code
+ * @property string $country
+ * @property string $phone
+ * @property string $web_address
+ * @property string $type
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Profile[] $Profiles
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\User[] $Users
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Schema[] $Schemas
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Vocabulary[] $Vocabularies
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Agent whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Agent whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Agent whereLastUpdated($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Agent whereDeletedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Agent whereOrgEmail($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Agent whereOrgName($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Agent whereIndAffiliation($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Agent whereIndRole($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Agent whereAddress1($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Agent whereAddress2($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Agent whereCity($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Agent whereState($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Agent wherePostalCode($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Agent whereCountry($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Agent wherePhone($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Agent whereWebAddress($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Agent whereType($value)
+ */
 class Agent extends Model
 {
     use SoftDeletes;

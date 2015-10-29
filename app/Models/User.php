@@ -3,6 +3,73 @@
 use Illuminate\Database\Eloquent\Model as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * App\Models\User
+ *
+ * @property integer $id
+ * @property \Carbon\Carbon $created_at
+ * @property string $last_updated
+ * @property \Carbon\Carbon $deleted_at
+ * @property string $nickname
+ * @property string $salutation
+ * @property string $first_name
+ * @property string $last_name
+ * @property string $email
+ * @property string $sha1_password
+ * @property string $salt
+ * @property boolean $want_to_be_moderator
+ * @property boolean $is_moderator
+ * @property boolean $is_administrator
+ * @property integer $deletions
+ * @property string $password
+ * @property string $culture
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Profile[] $ProfilesUpdated
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Profile[] $ProfilesCreated
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Profile[] $ProfilesDeleted
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ProfileProperty[] $ProfilePropertiesUpdated
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ProfileProperty[] $ProfilePropertiesCreated
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ProfileProperty[] $ProfilePropertiesDeleted
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Agent[] $Agents
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Collection[] $CollectionsCreated
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Collection[] $CollectionsUpdated
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Concept[] $ConceptsCreated
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Concept[] $ConceptsUpdated
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ConceptProperty[] $ConceptPropertiesCreated
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ConceptProperty[] $ConceptPropertiesUpdated
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ConceptPropertyHistory[] $ConceptPropertyHistoryCreated
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Discuss[] $DiscussionsCreated
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Discuss[] $DiscussionsDeleted
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\FileImportHistory[] $FileImportHistory
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Schema[] $ElementSetsCreated
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Schema[] $ElementSetsUpdated
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\SchemaProperty[] $ElementsCreated
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\SchemaProperty[] $ElementsUpdated
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\SchemaPropertyElement[] $ElementPropertiesCreated
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\SchemaPropertyElement[] $ElementPropertiesUpdated
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\SchemaPropertyElementHistory[] $ElementPropertyHistoriesCreated
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Vocabulary[] $VocabulariesCreated
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Vocabulary[] $VocabulariesUpdated
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Vocabulary[] $Vocabularies
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Schema[] $ElementSets
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\SchemaHasVersion[] $VocabularyVersionsCreated
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereCreatedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereLastUpdated($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereDeletedAt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereNickname($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereSalutation($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereFirstName($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereLastName($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereEmail($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereSha1Password($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereSalt($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereWantToBeModerator($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereIsModerator($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereIsAdministrator($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereDeletions($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\User wherePassword($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereCulture($value)
+ */
 class User extends Model
 {
     use SoftDeletes;

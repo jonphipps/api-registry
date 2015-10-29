@@ -3,6 +3,29 @@
 use Illuminate\Database\Eloquent\Model as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * App\Models\Status
+ *
+ * @property integer $id
+ * @property integer $display_order
+ * @property string $display_name
+ * @property string $uri
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Profile[] $profiles
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ProfileProperty[] $profileProperties
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Collection[] $Collections
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Concept[] $Concepts
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ConceptProperty[] $ConceptProperties
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ConceptPropertyHistory[] $ConceptPropertyHistory
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Schema[] $ElementSets
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\SchemaProperty[] $Elements
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\SchemaPropertyElement[] $ElementProperties
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\SchemaPropertyElementHistory[] $ElementPropertyHistory
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Vocabulary[] $Vocabularies
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Status whereId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Status whereDisplayOrder($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Status whereDisplayName($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Status whereUri($value)
+ */
 class Status extends Model
 {
     protected $table = 'reg_status';

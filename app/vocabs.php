@@ -4,6 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\vocabs
+ *
+ */
 class vocabs extends Model
 {
     //
