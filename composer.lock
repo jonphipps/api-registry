@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "21bf4e495a3a1cf69bc5bc71b89ae2e1",
-    "content-hash": "bf5e40483097bb8b28efd2c58010c0b9",
+    "hash": "65fb12d842466ead925670e7706c51bc",
+    "content-hash": "1b2a69130d1c26745a4b412251db0756",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -1184,16 +1184,16 @@
         },
         {
             "name": "league/fractal",
-            "version": "0.12.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/fractal.git",
-                "reference": "0a51dcb6398dc2377d086210d0624996a1df8322"
+                "reference": "219022e3031c13a150b393d4adb3a1c7455e2de2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/fractal/zipball/0a51dcb6398dc2377d086210d0624996a1df8322",
-                "reference": "0a51dcb6398dc2377d086210d0624996a1df8322",
+                "url": "https://api.github.com/repos/thephpleague/fractal/zipball/219022e3031c13a150b393d4adb3a1c7455e2de2",
+                "reference": "219022e3031c13a150b393d4adb3a1c7455e2de2",
                 "shasum": ""
             },
             "require": {
@@ -1243,7 +1243,7 @@
                 "league",
                 "rest"
             ],
-            "time": "2015-03-19 15:16:43"
+            "time": "2015-10-17 15:37:34"
         },
         {
             "name": "maximebf/debugbar",
@@ -1811,6 +1811,61 @@
                 "wiki": "https://github.com/rmasters/culpa/wiki"
             },
             "time": "2015-10-23 11:16:21"
+        },
+        {
+            "name": "spatie/laravel-fractal",
+            "version": "1.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-fractal.git",
+                "reference": "9a797139796ea52336f0f1b33ec22d3099acec8b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-fractal/zipball/9a797139796ea52336f0f1b33ec22d3099acec8b",
+                "reference": "9a797139796ea52336f0f1b33ec22d3099acec8b",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^5.1",
+                "league/fractal": "^0.13.0",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^3.0",
+                "phpunit/phpunit": "^4.0",
+                "scrutinizer/ocular": "^1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\Fractal\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A Fractal service provider for Laravel 5",
+            "homepage": "https://github.com/spatie/laravel-fractal",
+            "keywords": [
+                "api",
+                "fractal",
+                "laravel",
+                "laravel-fractal",
+                "lumen",
+                "spatie",
+                "transform"
+            ],
+            "time": "2015-10-26 22:41:31"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4280,7 +4335,14 @@
             "time": "2015-02-23 05:43:08"
         }
     ],
-    "aliases": [],
+    "aliases": [
+        {
+            "alias": "0.12",
+            "alias_normalized": "0.12.0.0",
+            "version": "9999999-dev",
+            "package": "league/fractal"
+        }
+    ],
     "minimum-stability": "stable",
     "stability-flags": {
         "dingo/api": 20,
@@ -4290,6 +4352,7 @@
         "mitulgolakiya/laravel-api-generator": 20,
         "rmasters/culpa": 20,
         "bestmomo/scafold": 20,
+        "league/fractal": 20,
         "xethron/migrations-generator": 20,
         "way/generators": 20,
         "jimbolino/laravel-model-builder": 20
