@@ -87,10 +87,10 @@ class ConceptAPIController extends AppBaseController
 		$properties = [];
 		foreach ($concept->ConceptProperties as $conceptProperty) {
 			if ($conceptProperty->profileProperty->has_language) {
-				$properties[$conceptProperty->language][$conceptProperty->ProfileProperty->name] = utf8_decode($conceptProperty->object);
+				$properties[$conceptProperty->language][$conceptProperty->ProfileProperty->name] = $conceptProperty->object;
 			}
 			else{
-				$properties[$conceptProperty->ProfileProperty->name] = utf8_decode($conceptProperty->object);
+				$properties[$conceptProperty->ProfileProperty->name] = $conceptProperty->object;
 
 			}
 

@@ -87,6 +87,18 @@ class ConceptProperty extends Model
 	    
 	];
 
+
+    /** ===============
+     * Accessors
+     * ================
+     */
+
+    public function getObjectAttribute($value)
+    {
+        //TODO: Check to make sure the data in the database needs to be decoded
+        return utf8_decode($value);
+    }
+
     public function UserCreator()
     {
         return $this->belongsTo('App\Models\User', 'created_user_id', 'id');
