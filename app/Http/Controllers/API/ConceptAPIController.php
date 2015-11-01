@@ -8,9 +8,11 @@ use Dingo\Api\Routing\Helpers;
 use Dingo\Api\Transformer\Adapter\Fractal;
 use Dingo\Api\Transformer\Binding;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use League\Fractal\Resource\Item;
 use Mitul\Controller\AppBaseController as AppBaseController;
 use Response;
+use SimpleXMLElement;
 
 class ConceptAPIController extends AppBaseController
 {
@@ -71,39 +73,64 @@ class ConceptAPIController extends AppBaseController
 	 * Display the specified Concept.
 	 * GET|HEAD /concepts/{id}
 	 *
+	 * @param Request $request
 	 * @param  int $id
-	 *
 	 * @return Response
 	 */
-	public function show($id)
+	public function show(Request $request, $id)
 	{
 		$concept = $this->conceptRepository->apiFindOrFail($id);
 
 		//concept has to be transformed
+
 		$response = $this->response();
+		//todo: move this to middleware in order to handle content negotiation
+		$format = Str::lower($request->get('format', 'json'));
 		$item = $response->item($concept, new ConceptTransformer());
 		$resource = new Item($concept, new ConceptTransformer());
 
 		$properties = [];
-		foreach ($concept->ConceptProperties as $conceptProperty) {
-			if ($conceptProperty->profileProperty->has_language) {
-				$properties[$conceptProperty->language][$conceptProperty->ProfileProperty->name] = $conceptProperty->object;
-			}
-			else{
-				$properties[$conceptProperty->ProfileProperty->name] = $conceptProperty->object;
-
-			}
-
-		}
-		$result = [
-				'uri' =>$concept->uri,
-				'properties' => $properties,
-		];
-
 
 		//make sure we're sending utf-8
 		//sendResponse always sends json
-		return $this->sendResponse($result, "Concept retrieved successfully");
+		if ('json' == $format) {
+			foreach ($concept->ConceptProperties as $conceptProperty) {
+				if ($conceptProperty->profileProperty->has_language) {
+					$properties[$conceptProperty->language][$conceptProperty->ProfileProperty->name] = $conceptProperty->object;
+				} else {
+					$properties[$conceptProperty->ProfileProperty->name] = $conceptProperty->object;
+
+				}
+
+			}
+			$result = [
+					'uri' => $concept->uri,
+					'properties' => $properties,
+			];
+
+			return $this->sendResponse($result, "Concept retrieved successfully");
+		} else {
+			//todo: move this to a formatter
+			foreach ($concept->ConceptProperties as $conceptProperty) {
+				$properties[$conceptProperty->ProfileProperty->name . $conceptProperty->language] = $conceptProperty;
+			}
+			ksort($properties, SORT_NATURAL | SORT_FLAG_CASE);
+			//build the xml
+			$xml = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8"?><response/>');
+			$xml->registerXPathNamespace('xml', 'http://www.w3.org/XML/1998/namespace');
+			$data = $xml->addChild('data');
+			$uri = $data->addChild('uri', $concept->uri);
+			foreach ($properties as $conceptProperty) {
+				$key = $conceptProperty->ProfileProperty->name;
+				$property = $data->addChild($key, $conceptProperty->object);
+				if ($conceptProperty->profileProperty->has_language) {
+					$property->addAttribute('xml:lang', $conceptProperty->language, 'xml');
+				}
+			}
+			$message = $xml->addChild('message', "Concept retrieved successfully");
+
+			return Response::make($xml->asXML(), 200)->header('Content-Type', 'application/xml');
+		}
 	}
 
 	/**
