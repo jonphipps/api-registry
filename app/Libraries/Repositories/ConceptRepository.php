@@ -19,7 +19,11 @@ class ConceptRepository extends Repository
       return 'App\Models\Concept';
     }
 
-	public function search($input)
+    /**
+     * @param $input
+     * @return array
+     */
+    public function search($input)
     {
         $query = Concept::query();
 
@@ -42,6 +46,12 @@ class ConceptRepository extends Repository
         return [$query->get(), $attributes];
     }
 
+    /**
+     * @param integer $id
+     * @return Concept
+     *
+     * @throws HttpException
+     */
     public function apiFindOrFail($id)
     {
         /** @var \App\Models\Concept $model */
@@ -61,6 +71,12 @@ class ConceptRepository extends Repository
         return $model;
     }
 
+    /**
+     * @param $id
+     * @return mixed
+     *
+     * @throws HttpException
+     */
     public function apiDeleteOrFail($id)
     {
         $model = $this->find($id);
