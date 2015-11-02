@@ -119,25 +119,36 @@ class ElementAPIController extends AppBaseController
 			$xml->registerXPathNamespace('xml', 'http://www.w3.org/XML/1998/namespace');
 			$data = $xml->addChild('data');
 			$data->addAttribute('uri', $element->uri);
-			$status = $data->addChild('status',$element->status->display_name);
-			$status->addAttribute('uri', $element->status->uri);
+			$status = $data->addChild('status',$element->Status->display_name);
+			$status->addAttribute('uri', $element->Status->uri);
 			foreach ($properties as $elementProperty) {
 				$key = $elementProperty->ProfileProperty->name;
+                if (in_array($key,['statusId','uri'])) {
+                    continue;
+                }
 				if ($elementProperty->profileProperty->has_language) {
 					$property = $data->addChild($key, $elementProperty->object);
 					$property->addAttribute('xml:lang', $elementProperty->language, 'xml');
 				}
 				else{
 					try {
-						$relatedElement = $this->conceptRepository->apiFindOrFail($elementProperty->related_concept_id);
+						$relatedElement = $this->elementRepository->apiFindOrFail($elementProperty->related_schema_property_id);
 					} catch (HttpException $e) {
 					}
 					$relatedProperties = [];
 					foreach ($relatedElement->ElementProperties as $relElementProperty) {
 						$relatedProperties[$relElementProperty->ProfileProperty->name . '.' . $relElementProperty->language] = $relElementProperty;
 					}
-					$relKey = array_key_exists('prefLabel.en', $relatedProperties) ? 'prefLabel.en' : 'prefLabel.';
-					$property = $data->addChild($key, $relatedProperties[$relKey]->object);
+                    //todo: set the label language based on language request
+					$relKey = array_key_exists('label.en', $relatedProperties) ? 'label.en' : 'label.';
+
+                    //todo: Fix this hack
+                    if ('type' == $key) {
+                        $property = $data->addChild($key, str::studly($elementProperty->object));
+                        continue;
+                    }
+
+                    $property = $data->addChild($key, $relatedProperties[$relKey]->object);
 					$property->addAttribute('uri', $elementProperty->object);
 				}
 			}
