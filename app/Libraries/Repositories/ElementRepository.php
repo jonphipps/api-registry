@@ -42,7 +42,8 @@ class ElementRepository extends Repository
 
     public function apiFindOrFail($id)
     {
-        $model = $this->find($id);
+        /** @var \App\Models\Element $model */
+        $model = $this->model->with('ElementProperties.ProfileProperty')->find($id);
 
         if(empty($model))
         {
