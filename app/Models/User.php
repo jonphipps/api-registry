@@ -40,18 +40,18 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Discuss[] $DiscussionsCreated
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Discuss[] $DiscussionsDeleted
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\FileImportHistory[] $FileImportHistory
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Schema[] $ElementSetsCreated
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Schema[] $ElementSetsUpdated
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\SchemaProperty[] $ElementsCreated
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\SchemaProperty[] $ElementsUpdated
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\SchemaPropertyElement[] $ElementPropertiesCreated
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\SchemaPropertyElement[] $ElementPropertiesUpdated
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\SchemaPropertyElementHistory[] $ElementPropertyHistoriesCreated
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ElementSet[] $ElementSetsCreated
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ElementSet[] $ElementSetsUpdated
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Element[] $ElementsCreated
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Element[] $ElementsUpdated
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ElementProperty[] $ElementPropertiesCreated
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ElementProperty[] $ElementPropertiesUpdated
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ElementPropertyHistory[] $ElementPropertyHistoriesCreated
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Vocabulary[] $VocabulariesCreated
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Vocabulary[] $VocabulariesUpdated
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Vocabulary[] $Vocabularies
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Schema[] $ElementSets
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\SchemaHasVersion[] $VocabularyVersionsCreated
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ElementSet[] $ElementSets
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ElementSetHasVersion[] $VocabularyVersionsCreated
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereLastUpdated($value)
@@ -202,37 +202,37 @@ class User extends Model
 
     public function ElementSetsCreated()
     {
-        return $this->hasMany('App\Models\Schema', 'created_user_id', 'id');
+        return $this->hasMany('App\Models\ElementSet', 'created_user_id', 'id');
     }
 
     public function ElementSetsUpdated()
     {
-        return $this->hasMany('App\Models\Schema', 'updated_user_id', 'id');
+        return $this->hasMany('App\Models\ElementSet', 'updated_user_id', 'id');
     }
 
     public function ElementsCreated()
     {
-        return $this->hasMany('App\Models\SchemaProperty', 'created_user_id', 'id');
+        return $this->hasMany('App\Models\Element', 'created_user_id', 'id');
     }
 
     public function ElementsUpdated()
     {
-        return $this->hasMany('App\Models\SchemaProperty', 'updated_user_id', 'id');
+        return $this->hasMany('App\Models\Element', 'updated_user_id', 'id');
     }
 
     public function ElementPropertiesCreated()
     {
-        return $this->hasMany('App\Models\SchemaPropertyElement', 'created_user_id', 'id');
+        return $this->hasMany('App\Models\ElementProperty', 'created_user_id', 'id');
     }
 
     public function ElementPropertiesUpdated()
     {
-        return $this->hasMany('App\Models\SchemaPropertyElement', 'updated_user_id', 'id');
+        return $this->hasMany('App\Models\ElementProperty', 'updated_user_id', 'id');
     }
 
     public function ElementPropertyHistoriesCreated()
     {
-        return $this->hasMany('App\Models\SchemaPropertyElementHistory', 'created_user_id', 'id');
+        return $this->hasMany('App\Models\ElementPropertyHistory', 'created_user_id', 'id');
     }
 
     public function VocabulariesCreated()
@@ -263,7 +263,7 @@ class User extends Model
      */
     public function ElementSets()
     {
-        return $this->belongsToMany('App\Models\Schema', 'SchemaHasUser')
+        return $this->belongsToMany('App\Models\ElementSet', 'SchemaHasUser')
             ->withPivot('is_maintainer_for',
                 'is_registrar_for', 'is_admin_for', 'languages',
                 'default_language', 'current_language')
@@ -272,7 +272,7 @@ class User extends Model
 
     public function VocabularyVersionsCreated()
     {
-        return $this->hasMany('App\Models\SchemaHasVersion', 'created_user_id', 'id');
+        return $this->hasMany('App\Models\ElementSetHasVersion', 'created_user_id', 'id');
     }
 
 }

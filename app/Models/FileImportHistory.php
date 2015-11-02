@@ -22,10 +22,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property integer $success_count
  * @property-read \App\Models\User $User
  * @property-read \App\Models\Vocabulary $Vocabulary
- * @property-read \App\Models\Schema $Schema
+ * @property-read \App\Models\ElementSet $ElementSet
  * @property-read \App\Models\Batch $Batch
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ConceptPropertyHistory[] $ConceptPropertyHistory
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\SchemaPropertyElementHistory[] $ElementPropertyHistory
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ConceptPropertyHistory[] $ConceptPropertyHistories
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ElementPropertyHistory[] $ElementPropertyHistories
  * @method static \Illuminate\Database\Query\Builder|\App\Models\FileImportHistory whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\FileImportHistory whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\FileImportHistory whereMap($value)
@@ -83,9 +83,9 @@ class FileImportHistory extends Model
         return $this->belongsTo('App\Models\Vocabulary', 'vocabulary_id', 'id');
     }
 
-    public function Schema()
+    public function ElementSet()
     {
-        return $this->belongsTo('App\Models\Schema', 'schema_id', 'id');
+        return $this->belongsTo('App\Models\ElementSet', 'schema_id', 'id');
     }
 
     public function Batch()
@@ -93,14 +93,14 @@ class FileImportHistory extends Model
         return $this->belongsTo('App\Models\Batch', 'batch_id', 'id');
     }
 
-    public function ConceptPropertyHistory()
+    public function ConceptPropertyHistories()
     {
         return $this->hasMany('App\Models\ConceptPropertyHistory', 'import_id', 'id');
     }
 
-    public function ElementPropertyHistory()
+    public function ElementPropertyHistories()
     {
-        return $this->hasMany('App\Models\SchemaPropertyElementHistory', 'import_id', 'id');
+        return $this->hasMany('App\Models\ElementPropertyHistory', 'import_id', 'id');
     }
 
 }

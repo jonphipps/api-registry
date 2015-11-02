@@ -16,10 +16,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Concept[] $Concepts
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ConceptProperty[] $ConceptProperties
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ConceptPropertyHistory[] $ConceptPropertyHistory
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Schema[] $ElementSets
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\SchemaProperty[] $Elements
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\SchemaPropertyElement[] $ElementProperties
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\SchemaPropertyElementHistory[] $ElementPropertyHistory
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ElementSet[] $ElementSets
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Element[] $Elements
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ElementProperty[] $ElementProperties
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ElementPropertyHistory[] $ElementPropertyHistory
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Vocabulary[] $Vocabularies
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Status whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Status whereDisplayOrder($value)
@@ -81,22 +81,22 @@ class Status extends Model
 
     public function ElementSets()
     {
-        return $this->hasMany('App\Models\Schema', 'status_id', 'id');
+        return $this->hasMany('App\Models\ElementSet', 'status_id', 'id');
     }
 
     public function Elements()
     {
-        return $this->hasMany('App\Models\SchemaProperty', 'status_id', 'id');
+        return $this->hasMany('App\Models\Element', 'status_id', 'id');
     }
 
     public function ElementProperties()
     {
-        return $this->hasMany('App\Models\SchemaPropertyElement', 'status_id', 'id');
+        return $this->hasMany('App\Models\ElementProperty', 'status_id', 'id');
     }
 
     public function ElementPropertyHistory()
     {
-        return $this->hasMany('App\Models\SchemaPropertyElementHistory', 'status_id', 'id');
+        return $this->hasMany('App\Models\ElementPropertyHistory', 'status_id', 'id');
     }
 
     public function Vocabularies()

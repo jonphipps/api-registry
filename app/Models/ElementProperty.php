@@ -20,14 +20,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $language
  * @property integer $status_id
  * @property boolean $is_generated
- * @property-read \App\Models\ProfileProperty $profileProperty
+ * @property-read \App\Models\ProfileProperty $ProfileProperty
  * @property-read \App\Models\User $UserCreator
  * @property-read \App\Models\User $UserUpdater
- * @property-read \App\Models\SchemaProperty $SchemaProperty
- * @property-read \App\Models\SchemaProperty $RelatedSchemaProperty
+ * @property-read \App\Models\Element $Element
+ * @property-read \App\Models\Element $RelatedSchemaProperty
  * @property-read \App\Models\Status $Status
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Discuss[] $Discussions
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\SchemaPropertyElementHistory[] $History
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ElementPropertyHistory[] $ElementPropertyHistories
  * @method static \Illuminate\Database\Query\Builder|\App\Models\ElementProperty whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\ElementProperty whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\ElementProperty whereUpdatedAt($value)
@@ -78,7 +78,7 @@ class ElementProperty extends Model
 	    
 	];
 
-    public function profileProperty()
+    public function ProfileProperty()
     {
         return $this->belongsTo('App\Models\ProfileProperty', 'profile_property_id', 'id');
     }
@@ -93,14 +93,14 @@ class ElementProperty extends Model
         return $this->belongsTo('App\Models\User', 'updated_user_id', 'id');
     }
 
-    public function SchemaProperty()
+    public function Element()
     {
-        return $this->belongsTo('App\Models\SchemaProperty', 'schema_property_id', 'id');
+        return $this->belongsTo('App\Models\Element', 'schema_property_id', 'id');
     }
 
     public function RelatedSchemaProperty()
     {
-        return $this->belongsTo('App\Models\SchemaProperty', 'related_schema_property_id', 'id');
+        return $this->belongsTo('App\Models\Element', 'related_schema_property_id', 'id');
     }
 
     public function Status()
@@ -113,9 +113,9 @@ class ElementProperty extends Model
         return $this->hasMany('App\Models\Discuss', 'schema_property_element_id', 'id');
     }
 
-    public function History()
+    public function ElementPropertyHistories()
     {
-        return $this->hasMany('App\Models\SchemaPropertyElementHistory', 'schema_property_element_id', 'id');
+        return $this->hasMany('App\Models\ElementPropertyHistory', 'schema_property_element_id', 'id');
     }
 
 }

@@ -25,7 +25,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $type
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Profile[] $Profiles
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\User[] $Users
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Schema[] $Schemas
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ElementSet[] $Schemas
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Vocabulary[] $Vocabularies
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Agent whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Agent whereCreatedAt($value)
@@ -100,7 +100,7 @@ class Agent extends Model
 
     public function Schemas()
     {
-        return $this->hasMany('App\Models\Schema', 'agent_id', 'id');
+        return $this->hasMany('App\Models\ElementSet', 'agent_id', 'id');
     }
 
     public function Vocabularies()

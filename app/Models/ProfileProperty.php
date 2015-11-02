@@ -51,8 +51,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property-read \App\Models\User $UserDeletor
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ProfileProperty[] $InverseProfileProperties
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ConceptProperty[] $SkosProperties
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\SchemaPropertyElement[] $ElementProperties
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\SchemaPropertyElementHistory[] $ElementPropertyHistory
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ElementProperty[] $ElementProperties
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ElementPropertyHistory[] $ElementPropertyHistories
  * @method static \Illuminate\Database\Query\Builder|\App\Models\ProfileProperty whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\ProfileProperty whereSkosId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\ProfileProperty whereCreatedAt($value)
@@ -193,12 +193,12 @@ class ProfileProperty extends Model
 
     public function ElementProperties()
     {
-        return $this->hasMany('App\Models\SchemaPropertyElement', 'profile_property_id', 'id');
+        return $this->hasMany('App\Models\ElementProperty', 'profile_property_id', 'id');
     }
 
-    public function ElementPropertyHistory()
+    public function ElementPropertyHistories()
     {
-        return $this->hasMany('App\Models\SchemaPropertyElementHistory', 'profile_property_id', 'id');
+        return $this->hasMany('App\Models\ElementPropertyHistory', 'profile_property_id', 'id');
     }
 
 }

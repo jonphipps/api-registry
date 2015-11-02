@@ -2,13 +2,22 @@
 
 use App\Http\Requests;
 use App\Libraries\Repositories\ElementRepository;
+use App\Libraries\Transformers\ElementTransformer;
 use App\Models\Element;
+use Dingo\Api\Routing\Helpers;
+use Dingo\Api\Transformer\Adapter\Fractal;
+use Dingo\Api\Transformer\Binding;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use League\Fractal\Resource\Item;
 use Mitul\Controller\AppBaseController as AppBaseController;
 use Response;
+use SimpleXMLElement;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class ElementAPIController extends AppBaseController
 {
+	use Helpers;
 	/** @var  ElementRepository */
 	private $elementRepository;
 
@@ -64,15 +73,78 @@ class ElementAPIController extends AppBaseController
 	 * Display the specified Element.
 	 * GET|HEAD /elements/{id}
 	 *
+	 * @param Request $request
 	 * @param  int $id
-	 *
+	 * 
 	 * @return Response
 	 */
-	public function show($id)
+	public function show(Request $request, $id)
 	{
 		$element = $this->elementRepository->apiFindOrFail($id);
 
-		return $this->sendResponse($element->toArray(), "Element retrieved successfully");
+		$response = $this->response();
+		//todo: move this to middleware in order to handle content negotiation
+		$format = Str::lower($request->get('format', 'json'));
+		$item = $response->item($element, new ElementTransformer());
+		$resource = new Item($element, new ElementTransformer());
+
+		$properties = [];
+
+		//make sure we're sending utf-8
+		//sendResponse always sends json
+		if ('json' == $format) {
+			foreach ($element->ElementProperties as $elementProperty) {
+				if ($elementProperty->profileProperty->has_language) {
+					$properties[$elementProperty->language][$elementProperty->ProfileProperty->name] = $elementProperty->object;
+				} else {
+					$properties[$elementProperty->ProfileProperty->name] = $elementProperty->object;
+
+				}
+
+			}
+			$result = [
+					'uri' => $element->uri,
+					'properties' => $properties,
+			];
+
+			return $this->sendResponse($result, "Element retrieved successfully");
+		} else {
+			//todo: move this to a formatter
+			foreach ($element->ElementProperties as $elementProperty) {
+				$properties[$elementProperty->ProfileProperty->name . '.' . $elementProperty->language] = $elementProperty;
+			}
+			ksort($properties, SORT_NATURAL | SORT_FLAG_CASE);
+			//build the xml
+			$xml = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8"?><response/>');
+			$xml->registerXPathNamespace('xml', 'http://www.w3.org/XML/1998/namespace');
+			$data = $xml->addChild('data');
+			$data->addAttribute('uri', $element->uri);
+			$status = $data->addChild('status',$element->status->display_name);
+			$status->addAttribute('uri', $element->status->uri);
+			foreach ($properties as $elementProperty) {
+				$key = $elementProperty->ProfileProperty->name;
+				if ($elementProperty->profileProperty->has_language) {
+					$property = $data->addChild($key, $elementProperty->object);
+					$property->addAttribute('xml:lang', $elementProperty->language, 'xml');
+				}
+				else{
+					try {
+						$relatedElement = $this->conceptRepository->apiFindOrFail($elementProperty->related_concept_id);
+					} catch (HttpException $e) {
+					}
+					$relatedProperties = [];
+					foreach ($relatedElement->ElementProperties as $relElementProperty) {
+						$relatedProperties[$relElementProperty->ProfileProperty->name . '.' . $relElementProperty->language] = $relElementProperty;
+					}
+					$relKey = array_key_exists('prefLabel.en', $relatedProperties) ? 'prefLabel.en' : 'prefLabel.';
+					$property = $data->addChild($key, $relatedProperties[$relKey]->object);
+					$property->addAttribute('uri', $elementProperty->object);
+				}
+			}
+			$message = $xml->addChild('message', "Element retrieved successfully");
+
+			return Response::make($xml->asXML(), 200)->header('Content-Type', 'application/xml');
+		}
 	}
 
 	/**

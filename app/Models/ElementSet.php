@@ -30,6 +30,19 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $prefixes
  * @property string $languages
  * @property string $repo
+ * @property-read \App\Models\User $UserCreator
+ * @property-read \App\Models\User $UserUpdater
+ * @property-read \App\Models\Agent $Agent
+ * @property-read \App\Models\Profile $Profile
+ * @property-read \App\Models\Status $Status
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Discuss[] $Discussions
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\FileImportHistory[] $FileImportHistories
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\RdfNamespace[] $RdfNamespaces
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Element[] $Elements
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ElementPropertyHistory[] $ElementPropertyHistories
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ElementSetHasUser[] $ElementSetHasUsers
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ElementSetHasVersion[] $ElementSetHasVersions
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ElementSet[] $Users
  * @method static \Illuminate\Database\Query\Builder|\App\Models\ElementSet whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\ElementSet whereAgentId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\ElementSet whereCreatedAt($value)
@@ -63,33 +76,8 @@ class ElementSet extends Model
     
 	protected $dates = ['deleted_at'];
 
-
-	public $fillable = [
-	    "id",
-		"agent_id",
-		"created_at",
-		"updated_at",
-		"deleted_at",
-		"created_user_id",
-		"updated_user_id",
-		"child_updated_at",
-		"child_updated_user_id",
-		"name",
-		"note",
-		"uri",
-		"url",
-		"base_domain",
-		"token",
-		"community",
-		"last_uri_id",
-		"status_id",
-		"language",
-		"profile_id",
-		"ns_type",
-		"prefixes",
-		"languages",
-		"repo"
-	];
+	protected $fillable = array('deleted_at', 'name', 'note', 'uri', 'url',
+			'base_domain', 'token', 'community', 'last_uri_id', 'language', 'ns_type', 'prefixes', 'languages', 'repo');
 
     /**
      * The attributes that should be casted to native types.
@@ -122,5 +110,78 @@ class ElementSet extends Model
 	public static $rules = [
 	    
 	];
+
+	public function UserCreator()
+	{
+		return $this->belongsTo('App\Models\User', 'created_user_id', 'id');
+	}
+
+	public function UserUpdater()
+	{
+		return $this->belongsTo('App\Models\User', 'updated_user_id', 'id');
+	}
+
+	public function Agent()
+	{
+		return $this->belongsTo('App\Models\Agent', 'agent_id', 'id');
+	}
+
+	public function Profile()
+	{
+		return $this->belongsTo('App\Models\Profile', 'profile_id', 'id');
+	}
+
+	public function Status()
+	{
+		return $this->belongsTo('App\Models\Status', 'status_id', 'id');
+	}
+
+	public function Discussions()
+	{
+		return $this->hasMany('App\Models\Discuss', 'schema_id', 'id');
+	}
+
+	public function FileImportHistories()
+	{
+		return $this->hasMany('App\Models\FileImportHistory', 'schema_id', 'id');
+	}
+
+	public function RdfNamespaces()
+	{
+		return $this->hasMany('App\Models\RdfNamespace', 'schema_id', 'id');
+	}
+
+	public function Elements()
+	{
+		return $this->hasMany('App\Models\Element', 'schema_id', 'id');
+	}
+
+	public function ElementPropertyHistories()
+	{
+		return $this->hasMany('App\Models\ElementPropertyHistory', 'schema_id', 'id');
+	}
+
+	public function ElementSetHasUsers()
+	{
+		return $this->hasMany('App\Models\ElementSetHasUser', 'schema_id', 'id');
+	}
+
+	public function ElementSetHasVersions()
+	{
+		return $this->hasMany('App\Models\ElementSetHasVersion', 'schema_id', 'id');
+	}
+
+	/**
+	 * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+	 */
+	public function Users()
+	{
+		return $this->belongsToMany('App\Models\ElementSet', 'SchemaHasUser')
+				->withPivot('is_maintainer_for',
+						'is_registrar_for', 'is_admin_for', 'languages',
+						'default_language', 'current_language')
+				->withTimestamps();
+	}
+
 
 }

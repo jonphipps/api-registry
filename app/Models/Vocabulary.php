@@ -34,7 +34,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property-read \App\Models\User $UserCreator
  * @property-read \App\Models\User $UserUpdater
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\User[] $Users
- * @property-read \App\Models\Profile $profile
+ * @property-read \App\Models\Profile $Profile
  * @property-read \App\Models\Agent $Agent
  * @property-read \App\Models\Status $Status
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Collection[] $Collections
@@ -140,7 +140,7 @@ class Vocabulary extends Model
             ->withTimestamps();
     }
 
-    public function profile()
+    public function Profile()
     {
         return $this->belongsTo('App\Models\Profile', 'profile_id', 'id');
     }

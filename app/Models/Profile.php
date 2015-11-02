@@ -32,7 +32,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property-read \App\Models\User $UserCreator
  * @property-read \App\Models\User $UserDeletor
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ProfileProperty[] $profileProperties
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Schema[] $Schemas
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ElementSet[] $Schemas
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Vocabulary[] $Vocabularies
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Profile whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Profile whereAgentId($value)
@@ -127,7 +127,7 @@ class Profile extends Model
 
     public function Schemas()
     {
-        return $this->hasMany('App\Models\Schema', 'profile_id', 'id');
+        return $this->hasMany('App\Models\ElementSet', 'profile_id', 'id');
     }
 
     public function Vocabularies()

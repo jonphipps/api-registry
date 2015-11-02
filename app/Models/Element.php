@@ -31,15 +31,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $lexical_alias
  * @property-read \App\Models\User $UserCreator
  * @property-read \App\Models\User $UserUpdater
- * @property-read \App\Models\Schema $Schema
- * @property-read \App\Models\SchemaProperty $SchemaProperty
+ * @property-read \App\Models\ElementSet $ElementSet
+ * @property-read \App\Models\Element $ParentElement
  * @property-read \App\Models\Status $Status
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Discuss[] $Discussions
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\SchemaProperty[] $ParentElements
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\SchemaPropertyElement[] $Properties
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\SchemaPropertyElement[] $RelatedElements
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\SchemaPropertyElementHistory[] $History
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\SchemaPropertyElementHistory[] $ObjectHistory
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ElementProperty[] $ElementProperties
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ElementProperty[] $RelatedElementProperties
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ElementPropertyHistory[] $ElementPropertyHistories
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\ElementPropertyHistory[] $RelatedElementPropertyHistories
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Element whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Element whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Element whereUpdatedAt($value)
@@ -118,14 +117,14 @@ class Element extends Model
         return $this->belongsTo('App\Models\User', 'updated_user_id', 'id');
     }
 
-    public function Schema()
+    public function ElementSet()
     {
-        return $this->belongsTo('App\Models\Schema', 'schema_id', 'id');
+        return $this->belongsTo('App\Models\ElementSet', 'schema_id', 'id');
     }
 
-    public function SchemaProperty()
+    public function ParentElement()
     {
-        return $this->belongsTo('App\Models\SchemaProperty', 'is_subproperty_of', 'id');
+        return $this->belongsTo('App\Models\Element', 'is_subproperty_of', 'id');
     }
 
     public function Status()
@@ -138,29 +137,24 @@ class Element extends Model
         return $this->hasMany('App\Models\Discuss', 'schema_property_id', 'id');
     }
 
-    public function ParentElements()
+    public function ElementProperties()
     {
-        return $this->hasMany('App\Models\SchemaProperty', 'is_subproperty_of', 'id');
+        return $this->hasMany('App\Models\ElementProperty', 'schema_property_id', 'id');
     }
 
-    public function Properties()
+    public function RelatedElementProperties()
     {
-        return $this->hasMany('App\Models\SchemaPropertyElement', 'schema_property_id', 'id');
+        return $this->hasMany('App\Models\ElementProperty', 'related_schema_property_id', 'id');
     }
 
-    public function RelatedElements()
+    public function ElementPropertyHistories()
     {
-        return $this->hasMany('App\Models\SchemaPropertyElement', 'related_schema_property_id', 'id');
+        return $this->hasMany('App\Models\ElementPropertyHistory', 'schema_property_id', 'id');
     }
 
-    public function History()
+    public function RelatedElementPropertyHistories()
     {
-        return $this->hasMany('App\Models\SchemaPropertyElementHistory', 'schema_property_id', 'id');
-    }
-
-    public function ObjectHistory()
-    {
-        return $this->hasMany('App\Models\SchemaPropertyElementHistory', 'related_schema_property_id', 'id');
+        return $this->hasMany('App\Models\ElementPropertyHistory', 'related_schema_property_id', 'id');
     }
 
 }
