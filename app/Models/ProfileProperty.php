@@ -151,6 +151,16 @@ class ProfileProperty extends Model
 	    
 	];
 
+    public function getNameAttribute($value)
+    {
+        //this is necessary to use the legacy database, where range was at one time a reserved word
+        if ('orange' == $value) {
+            return 'range';
+        } else {
+            return $value;
+        }
+    }
+
     public function Profile()
     {
         return $this->belongsTo('App\Models\Profile', 'profile_id', 'id');
