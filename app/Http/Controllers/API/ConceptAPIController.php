@@ -13,6 +13,7 @@ use League\Fractal\Resource\Item;
 use Mitul\Controller\AppBaseController as AppBaseController;
 use Response;
 use SimpleXMLElement;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class ConceptAPIController extends AppBaseController
 {
@@ -112,19 +113,34 @@ class ConceptAPIController extends AppBaseController
 		} else {
 			//todo: move this to a formatter
 			foreach ($concept->ConceptProperties as $conceptProperty) {
-				$properties[$conceptProperty->ProfileProperty->name . $conceptProperty->language] = $conceptProperty;
+				$properties[$conceptProperty->ProfileProperty->name . '.' . $conceptProperty->language] = $conceptProperty;
 			}
 			ksort($properties, SORT_NATURAL | SORT_FLAG_CASE);
 			//build the xml
 			$xml = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8"?><response/>');
 			$xml->registerXPathNamespace('xml', 'http://www.w3.org/XML/1998/namespace');
 			$data = $xml->addChild('data');
-			$uri = $data->addChild('uri', $concept->uri);
+			$data->addAttribute('uri', $concept->uri);
+			$status = $data->addChild('status',$concept->status->display_name);
+			$status->addAttribute('uri', $concept->status->uri);
 			foreach ($properties as $conceptProperty) {
 				$key = $conceptProperty->ProfileProperty->name;
-				$property = $data->addChild($key, $conceptProperty->object);
 				if ($conceptProperty->profileProperty->has_language) {
+					$property = $data->addChild($key, $conceptProperty->object);
 					$property->addAttribute('xml:lang', $conceptProperty->language, 'xml');
+				}
+				else{
+					try {
+						$relatedConcept = $this->conceptRepository->apiFindOrFail($conceptProperty->related_concept_id);
+					} catch (HttpException $e) {
+					}
+					$relatedProperties = [];
+					foreach ($relatedConcept->ConceptProperties as $relConceptProperty) {
+						$relatedProperties[$relConceptProperty->ProfileProperty->name . '.' . $relConceptProperty->language] = $relConceptProperty;
+					}
+					$relKey = array_key_exists('prefLabel.en', $relatedProperties) ? 'prefLabel.en' : 'prefLabel.';
+					$property = $data->addChild($key, $relatedProperties[$relKey]->object);
+					$property->addAttribute('uri', $conceptProperty->object);
 				}
 			}
 			$message = $xml->addChild('message', "Concept retrieved successfully");
