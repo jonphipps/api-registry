@@ -8,6 +8,13 @@
 | Here is where all API routes are defined.
 |
 */
+$api->get('search/uri/{encoded_url}'
+    , function($encoded_url)
+    {
+        return 'The URL is: '.rawurldecode($encoded_url);
+    })->where('encoded_url', '.*');
+$api->get('search', '\App\Http\Controllers\API\SearchAPIController@q')
+->middleware('search');
 
 $api->resource("agents", 'App\Http\Controllers\API\AgentAPIController');
 
