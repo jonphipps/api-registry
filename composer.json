@@ -19,7 +19,7 @@
         },
         {
             "type": "git",
-            "url": "https://github.com/jonphipps/laravel-api-generator"
+            "url": "https://github.com/jonphipps/laravel-api-test"
         },
         {
             "type": "git",
@@ -30,18 +30,16 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
         "dingo/api": "1.0.x@dev",
-        "barryvdh/laravel-debugbar": "^2.0",
         "laracasts/flash": "dev-master",
         "laravelcollective/html": "5.1.*@dev",
-        "bosnadev/repositories": "dev-master",
-        "mitulgolakiya/laravel-api-generator": "dev-master",
+        "julioalves/laravel-api-generator": "dev-master",
         "graham-campbell/exceptions": "~5.0",
         "rmasters/culpa": "dev-master",
         "bestmomo/scafold": "dev-master",
-        "league/fractal": "dev-master as 0.12",
-        "spatie/laravel-fractal": "^1.7",
-        "way/generators": "dev-feature/laravel-five-stable",
+        "yajra/laravel-datatables-oracle": "~5.0",
+        "barryvdh/laravel-debugbar": "^2.0",
         "league/uri": "^4.0"
+
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -49,6 +47,7 @@
         "phpunit/phpunit": "~4.0",
         "phpspec/phpspec": "~2.1",
         "xethron/migrations-generator": "dev-l5",
+        "way/generators": "dev-feature/laravel-five-stable",
         "barryvdh/laravel-ide-helper": "^2.1",
         "doctrine/dbal": "2.5.*",
         "jimbolino/laravel-model-builder" : "dev-master"

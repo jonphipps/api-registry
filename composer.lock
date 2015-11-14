@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "622c85898e50f7d2b84550bdbc6696e4",
-    "content-hash": "fee58303c39e5bec1265b5becfb2f31e",
+    "hash": "b0d072cf737a0dc8b218ca584bf11c14",
+    "content-hash": "fbca64c5702d04138270182338505eb8",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -104,79 +104,30 @@
             "time": "2015-09-30 17:35:12"
         },
         {
-            "name": "bosnadev/repositories",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jonphipps/Repositories",
-                "reference": "22228b11ebb530195867ad3773b70c30e95a83f1"
-            },
-            "require": {
-                "illuminate/database": "5.*",
-                "illuminate/support": "5.*",
-                "php": ">=5.4.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Bosnadev\\Repositories\\": "src/"
-                }
-            },
-            "autoload-dev": {
-                "psr-4": {
-                    "Bosnadev\\Tests\\Repositories\\": "tests/"
-                }
-            },
-            "authors": [
-                {
-                    "name": "Mirza Pasic",
-                    "email": "mirza.pasic@edu.fit.ba"
-                },
-                {
-                    "name": "Maarten Paauw",
-                    "email": "maartenpaauw@gmail.com"
-                }
-            ],
-            "description": "Laravel Repositories",
-            "keywords": [
-                "database",
-                "eloquent",
-                "laravel",
-                "repositories",
-                "repository"
-            ],
-            "time": "2015-10-28 20:57:36"
-        },
-        {
             "name": "classpreloader/classpreloader",
-            "version": "2.0.0",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ClassPreloader/ClassPreloader.git",
-                "reference": "8c3c14b10309e3b40bce833913a6c0c0b8c8f962"
+                "reference": "9b10b913c2bdf90c3d2e0d726b454fb7f77c552a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ClassPreloader/ClassPreloader/zipball/8c3c14b10309e3b40bce833913a6c0c0b8c8f962",
-                "reference": "8c3c14b10309e3b40bce833913a6c0c0b8c8f962",
+                "url": "https://api.github.com/repos/ClassPreloader/ClassPreloader/zipball/9b10b913c2bdf90c3d2e0d726b454fb7f77c552a",
+                "reference": "9b10b913c2bdf90c3d2e0d726b454fb7f77c552a",
                 "shasum": ""
             },
             "require": {
-                "nikic/php-parser": "~1.3",
+                "nikic/php-parser": "^1.0|^2.0",
                 "php": ">=5.5.9"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.0"
+                "phpunit/phpunit": "^4.8|^5.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0-dev"
+                    "dev-master": "3.0-dev"
                 }
             },
             "autoload": {
@@ -204,7 +155,7 @@
                 "class",
                 "preload"
             ],
-            "time": "2015-06-28 21:39:13"
+            "time": "2015-11-09 22:51:51"
         },
         {
             "name": "danielstjules/stringy",
@@ -268,12 +219,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dingo/api.git",
-                "reference": "4c8d21c0da07376b8e0caa7111562dc48555880b"
+                "reference": "93e4c6a22707a59f86c60fc62248769af5f2f8b3"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/dingo/api/zipball/93e4c6a22707a59f86c60fc62248769af5f2f8b3",
-                "reference": "4c8d21c0da07376b8e0caa7111562dc48555880b",
+                "reference": "93e4c6a22707a59f86c60fc62248769af5f2f8b3",
                 "shasum": ""
             },
             "require": {
@@ -281,7 +232,7 @@
                 "doctrine/annotations": "1.2.*",
                 "illuminate/routing": "~5.1",
                 "illuminate/support": "~5.1",
-                "league/fractal": "0.12.*",
+                "league/fractal": ">=0.12.0",
                 "php": ">=5.5.9",
                 "phpdocumentor/reflection-docblock": "2.0.*"
             },
@@ -336,7 +287,7 @@
                 "laravel",
                 "restful"
             ],
-            "time": "2015-10-13 06:54:17"
+            "time": "2015-11-03 02:58:06"
         },
         {
             "name": "dingo/blueprint",
@@ -496,16 +447,16 @@
         },
         {
             "name": "doctrine/inflector",
-            "version": "v1.0.1",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/inflector.git",
-                "reference": "0bcb2e79d8571787f18b7eb036ed3d004908e604"
+                "reference": "90b2128806bfde671b6952ab8bea493942c1fdae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/inflector/zipball/0bcb2e79d8571787f18b7eb036ed3d004908e604",
-                "reference": "0bcb2e79d8571787f18b7eb036ed3d004908e604",
+                "url": "https://api.github.com/repos/doctrine/inflector/zipball/90b2128806bfde671b6952ab8bea493942c1fdae",
+                "reference": "90b2128806bfde671b6952ab8bea493942c1fdae",
                 "shasum": ""
             },
             "require": {
@@ -517,7 +468,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.1.x-dev"
                 }
             },
             "autoload": {
@@ -559,7 +510,7 @@
                 "singularize",
                 "string"
             ],
-            "time": "2014-12-20 21:24:13"
+            "time": "2015-11-06 14:35:42"
         },
         {
             "name": "doctrine/lexer",
@@ -675,36 +626,37 @@
         },
         {
             "name": "graham-campbell/exceptions",
-            "version": "v5.0.0",
+            "version": "v5.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GrahamCampbell/Laravel-Exceptions.git",
-                "reference": "a62d5d189032f71e1cd97914ebb59c9a7f4b4767"
+                "reference": "6dd2bb9801eb8e45e7302a45e022d9294e2b62a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Exceptions/zipball/a62d5d189032f71e1cd97914ebb59c9a7f4b4767",
-                "reference": "a62d5d189032f71e1cd97914ebb59c9a7f4b4767",
+                "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Exceptions/zipball/6dd2bb9801eb8e45e7302a45e022d9294e2b62a3",
+                "reference": "6dd2bb9801eb8e45e7302a45e022d9294e2b62a3",
                 "shasum": ""
             },
             "require": {
                 "filp/whoops": "1.1.*",
-                "illuminate/contracts": "5.1.*",
-                "illuminate/support": "5.1.*",
+                "illuminate/contracts": "5.1.*|5.2.*",
+                "illuminate/support": "5.1.*|5.2.*",
+                "paragonie/random_compat": "^1.1",
                 "php": ">=5.5.9",
-                "psr/log": "~1.0",
-                "symfony/debug": "2.7.*",
-                "symfony/http-foundation": "2.7.*"
+                "psr/log": "^1.0",
+                "symfony/debug": "^2.7|^3.0",
+                "symfony/http-foundation": "^2.7|^3.0"
             },
             "require-dev": {
-                "graham-campbell/testbench": "~3.0",
+                "graham-campbell/testbench": "^3.1",
                 "mockery/mockery": "^0.9.4",
-                "phpunit/phpunit": "~4.8|~5.0"
+                "phpunit/phpunit": "^4.8|^5.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.0-dev"
+                    "dev-master": "5.1-dev"
                 }
             },
             "autoload": {
@@ -736,7 +688,7 @@
                 "laravel",
                 "whoops"
             ],
-            "time": "2015-10-06 16:49:41"
+            "time": "2015-11-14 11:53:08"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -946,6 +898,53 @@
             "time": "2015-03-30 12:49:45"
         },
         {
+            "name": "julioalves/laravel-api-generator",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jonphipps/laravel-api-test",
+                "reference": "87a7f3dea80dbb6847e7d40dbb16ebe294a44615"
+            },
+            "require": {
+                "illuminate/support": "5.1.*",
+                "php": ">=5.5.9",
+                "prettus/l5-repository": "^2.1",
+                "prettus/laravel-validation": "^1.1"
+            },
+            "suggest": {
+                "doctrine/dbal": "Required to use generator from existing table."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Casa\\": "src/Casa/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Julio Alves",
+                    "email": "julio.cesar.alves@gmail.com"
+                }
+            ],
+            "description": "Laravel API/Scaffold/CRUD Generator from just one command with including Controller, Repository, Model, Migrations, routes.php update.",
+            "keywords": [
+                "CRUD",
+                "api",
+                "generator",
+                "interface",
+                "laravel",
+                "migration",
+                "model",
+                "scaffold",
+                "service",
+                "validator"
+            ],
+            "time": "2015-11-10 14:17:30"
+        },
+        {
             "name": "laracasts/flash",
             "version": "dev-master",
             "source": {
@@ -983,20 +982,20 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.1.22",
+            "version": "v5.1.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "11d9627c7cd4d12b6e884b87daa7a2f898cf54cb"
+                "reference": "875baf2d1645ce23e2ec0bf94fa7bb3e7fbfd6ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/11d9627c7cd4d12b6e884b87daa7a2f898cf54cb",
-                "reference": "11d9627c7cd4d12b6e884b87daa7a2f898cf54cb",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/875baf2d1645ce23e2ec0bf94fa7bb3e7fbfd6ed",
+                "reference": "875baf2d1645ce23e2ec0bf94fa7bb3e7fbfd6ed",
                 "shasum": ""
             },
             "require": {
-                "classpreloader/classpreloader": "~2.0",
+                "classpreloader/classpreloader": "~2.0|~3.0",
                 "danielstjules/stringy": "~1.8",
                 "doctrine/inflector": "~1.0",
                 "ext-mbstring": "*",
@@ -1006,9 +1005,9 @@
                 "monolog/monolog": "~1.11",
                 "mtdowling/cron-expression": "~1.0",
                 "nesbot/carbon": "~1.19",
-                "paragonie/random_compat": "^1.0.6",
+                "paragonie/random_compat": "~1.1",
                 "php": ">=5.5.9",
-                "psy/psysh": "~0.5.1",
+                "psy/psysh": "0.6.*",
                 "swiftmailer/swiftmailer": "~5.1",
                 "symfony/console": "2.7.*",
                 "symfony/css-selector": "2.7.*",
@@ -1108,7 +1107,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2015-10-28 21:58:18"
+            "time": "2015-11-11 22:45:42"
         },
         {
             "name": "laravelcollective/html",
@@ -1116,12 +1115,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/LaravelCollective/html.git",
-                "reference": "a4acc4a0ad2c559db35dd0b4766d460d8f44276f"
+                "reference": "5ad8377968ba3b4da91fc60ca98b2eef4df380fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/a4acc4a0ad2c559db35dd0b4766d460d8f44276f",
-                "reference": "a4acc4a0ad2c559db35dd0b4766d460d8f44276f",
+                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/5ad8377968ba3b4da91fc60ca98b2eef4df380fc",
+                "reference": "5ad8377968ba3b4da91fc60ca98b2eef4df380fc",
                 "shasum": ""
             },
             "require": {
@@ -1158,7 +1157,7 @@
                     "email": "adam@laravelcollective.com"
                 }
             ],
-            "time": "2015-09-30 01:05:59"
+            "time": "2015-11-06 18:14:38"
         },
         {
             "name": "league/flysystem",
@@ -1246,16 +1245,16 @@
         },
         {
             "name": "league/fractal",
-            "version": "dev-master",
+            "version": "0.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/fractal.git",
-                "reference": "219022e3031c13a150b393d4adb3a1c7455e2de2"
+                "reference": "0a51dcb6398dc2377d086210d0624996a1df8322"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/fractal/zipball/219022e3031c13a150b393d4adb3a1c7455e2de2",
-                "reference": "219022e3031c13a150b393d4adb3a1c7455e2de2",
+                "url": "https://api.github.com/repos/thephpleague/fractal/zipball/0a51dcb6398dc2377d086210d0624996a1df8322",
+                "reference": "0a51dcb6398dc2377d086210d0624996a1df8322",
                 "shasum": ""
             },
             "require": {
@@ -1305,7 +1304,7 @@
                 "league",
                 "rest"
             ],
-            "time": "2015-10-17 15:37:34"
+            "time": "2015-03-19 15:16:43"
         },
         {
             "name": "league/uri",
@@ -1427,48 +1426,6 @@
                 "debug"
             ],
             "time": "2015-10-19 20:35:12"
-        },
-        {
-            "name": "mitulgolakiya/laravel-api-generator",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jonphipps/laravel-api-generator",
-                "reference": "6991bb82adf2c4a9f997e35934eb1a8adc1c13d8"
-            },
-            "require": {
-                "illuminate/support": "5.1.*",
-                "php": ">=5.5.9"
-            },
-            "suggest": {
-                "doctrine/dbal": "Required to use generator from existing table."
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Mitul\\": "src/Mitul/"
-                }
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Mitul Golakiya",
-                    "email": "me@mitul.me"
-                }
-            ],
-            "description": "Laravel API/Scaffold/CRUD Generator from just one command with including Controller, Repository, Model, Migrations, routes.php update.",
-            "keywords": [
-                "CRUD",
-                "api",
-                "generator",
-                "laravel",
-                "migration",
-                "model",
-                "scaffold"
-            ],
-            "time": "2015-10-28 14:24:27"
         },
         {
             "name": "monolog/monolog",
@@ -1593,16 +1550,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "1.20.0",
+            "version": "1.21.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "bfd3eaba109c9a2405c92174c8e17f20c2b9caf3"
+                "reference": "7b08ec6f75791e130012f206e3f7b0e76e18e3d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/bfd3eaba109c9a2405c92174c8e17f20c2b9caf3",
-                "reference": "bfd3eaba109c9a2405c92174c8e17f20c2b9caf3",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/7b08ec6f75791e130012f206e3f7b0e76e18e3d7",
+                "reference": "7b08ec6f75791e130012f206e3f7b0e76e18e3d7",
                 "shasum": ""
             },
             "require": {
@@ -1610,12 +1567,12 @@
                 "symfony/translation": "~2.6|~3.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.0"
+                "phpunit/phpunit": "~4.0|~5.0"
             },
             "type": "library",
             "autoload": {
-                "psr-0": {
-                    "Carbon": "src"
+                "psr-4": {
+                    "Carbon\\": "src/Carbon/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1636,7 +1593,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2015-06-25 04:19:39"
+            "time": "2015-11-04 20:07:17"
         },
         {
             "name": "nikic/php-parser",
@@ -1685,20 +1642,23 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "1.0.10",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "2fa50aa2f17066fa74ba00d943e8cee1a98284af"
+                "reference": "19f765b66c6fbb56ee3b11bc16d52e38eebdc295"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/2fa50aa2f17066fa74ba00d943e8cee1a98284af",
-                "reference": "2fa50aa2f17066fa74ba00d943e8cee1a98284af",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/19f765b66c6fbb56ee3b11bc16d52e38eebdc295",
+                "reference": "19f765b66c6fbb56ee3b11bc16d52e38eebdc295",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*|5.*"
             },
             "suggest": {
                 "ext-libsodium": "Provides a modern crypto API that can be used to generate random bytes."
@@ -1726,7 +1686,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2015-10-23 13:21:37"
+            "time": "2015-11-10 00:45:41"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -1776,6 +1736,106 @@
                 }
             ],
             "time": "2015-02-03 12:10:50"
+        },
+        {
+            "name": "prettus/l5-repository",
+            "version": "2.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/andersao/l5-repository.git",
+                "reference": "52395432b6df51d0e7c3de281198ad86d2975c6f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/andersao/l5-repository/zipball/52395432b6df51d0e7c3de281198ad86d2975c6f",
+                "reference": "52395432b6df51d0e7c3de281198ad86d2975c6f",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "~5.0|~5.1",
+                "illuminate/console": "~5.0|~5.1",
+                "illuminate/database": "~5.0|~5.1",
+                "illuminate/filesystem": "~5.0|~5.1",
+                "illuminate/http": "~5.0|~5.1",
+                "illuminate/pagination": "~5.0|~5.1",
+                "illuminate/support": "~5.0|~5.1",
+                "php": ">=5.4.0"
+            },
+            "suggest": {
+                "league/fractal": "Required to use the Fractal Presenter (0.12.*).",
+                "prettus/laravel-validation": "Required to use the Repository Validators (1.1.*)",
+                "robclancy/presenter": "Required to use the Presenter Model (1.3.*)"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-develop": "2.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Prettus\\Repository\\": "src/Prettus/Repository/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anderson Andrade",
+                    "email": "contato@andersonandra.de"
+                }
+            ],
+            "description": "Laravel 5 - Repositories to  the database layer",
+            "keywords": [
+                "cache",
+                "eloquent",
+                "laravel",
+                "model",
+                "repository"
+            ],
+            "time": "2015-09-11 11:26:57"
+        },
+        {
+            "name": "prettus/laravel-validation",
+            "version": "1.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/andersao/laravel-validator.git",
+                "reference": "c3501ba6b6312b8e98098783901060c0aff2b29d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/andersao/laravel-validator/zipball/c3501ba6b6312b8e98098783901060c0aff2b29d",
+                "reference": "c3501ba6b6312b8e98098783901060c0aff2b29d",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0|~5.1",
+                "illuminate/validation": "~5.0|~5.1",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Prettus\\Validator\\": "src/Prettus/Validator/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Anderson Andrade",
+                    "email": "contato@andersonandra.de"
+                }
+            ],
+            "description": "Laravel Validation Service",
+            "keywords": [
+                "laravel",
+                "service",
+                "validation"
+            ],
+            "time": "2015-06-08 23:53:46"
         },
         {
             "name": "psr/http-message",
@@ -1866,29 +1926,29 @@
         },
         {
             "name": "psy/psysh",
-            "version": "v0.5.2",
+            "version": "v0.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bobthecow/psysh.git",
-                "reference": "aaf8772ade08b5f0f6830774a5d5c2f800415975"
+                "reference": "0f04df0b23663799a8941fae13cd8e6299bde3ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/aaf8772ade08b5f0f6830774a5d5c2f800415975",
-                "reference": "aaf8772ade08b5f0f6830774a5d5c2f800415975",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/0f04df0b23663799a8941fae13cd8e6299bde3ed",
+                "reference": "0f04df0b23663799a8941fae13cd8e6299bde3ed",
                 "shasum": ""
             },
             "require": {
                 "dnoegel/php-xdg-base-dir": "0.1",
                 "jakub-onderka/php-console-highlighter": "0.3.*",
-                "nikic/php-parser": "^1.2.1",
+                "nikic/php-parser": "^1.2.1|~2.0",
                 "php": ">=5.3.9",
                 "symfony/console": "~2.3.10|^2.4.2|~3.0",
                 "symfony/var-dumper": "~2.7|~3.0"
             },
             "require-dev": {
                 "fabpot/php-cs-fixer": "~1.5",
-                "phpunit/phpunit": "~3.7|~4.0",
+                "phpunit/phpunit": "~3.7|~4.0|~5.0",
                 "squizlabs/php_codesniffer": "~2.0",
                 "symfony/finder": "~2.1|~3.0"
             },
@@ -1904,15 +1964,15 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-develop": "0.6.x-dev"
+                    "dev-develop": "0.7.x-dev"
                 }
             },
             "autoload": {
                 "files": [
                     "src/Psy/functions.php"
                 ],
-                "psr-0": {
-                    "Psy\\": "src/"
+                "psr-4": {
+                    "Psy\\": "src/Psy/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1934,7 +1994,7 @@
                 "interactive",
                 "shell"
             ],
-            "time": "2015-07-16 15:26:57"
+            "time": "2015-11-12 16:18:56"
         },
         {
             "name": "rmasters/culpa",
@@ -1987,61 +2047,6 @@
                 "wiki": "https://github.com/rmasters/culpa/wiki"
             },
             "time": "2015-10-23 11:16:21"
-        },
-        {
-            "name": "spatie/laravel-fractal",
-            "version": "1.7.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/laravel-fractal.git",
-                "reference": "9a797139796ea52336f0f1b33ec22d3099acec8b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-fractal/zipball/9a797139796ea52336f0f1b33ec22d3099acec8b",
-                "reference": "9a797139796ea52336f0f1b33ec22d3099acec8b",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "^5.1",
-                "league/fractal": "^0.13.0",
-                "php": ">=5.5.0"
-            },
-            "require-dev": {
-                "orchestra/testbench": "^3.0",
-                "phpunit/phpunit": "^4.0",
-                "scrutinizer/ocular": "^1.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\Fractal\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Freek Van der Herten",
-                    "email": "freek@spatie.be",
-                    "homepage": "https://spatie.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "A Fractal service provider for Laravel 5",
-            "homepage": "https://github.com/spatie/laravel-fractal",
-            "keywords": [
-                "api",
-                "fractal",
-                "laravel",
-                "laravel-fractal",
-                "lumen",
-                "spatie",
-                "transform"
-            ],
-            "time": "2015-10-26 22:41:31"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2821,43 +2826,59 @@
             "time": "2015-05-30 15:59:26"
         },
         {
-            "name": "way/generators",
-            "version": "dev-feature/laravel-five-stable",
+            "name": "yajra/laravel-datatables-oracle",
+            "version": "v5.12.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:jamisonvalenta/Laravel-4-Generators.git",
-                "reference": "a358bb44f517e2b3c1fd4f848f2646857c75b3a4"
+                "url": "https://github.com/yajra/laravel-datatables.git",
+                "reference": "152b239c3791050bff2cf2aa9abf06270acbbbfa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yajra/laravel-datatables/zipball/152b239c3791050bff2cf2aa9abf06270acbbbfa",
+                "reference": "152b239c3791050bff2cf2aa9abf06270acbbbfa",
+                "shasum": ""
             },
             "require": {
+                "illuminate/database": "~5.0",
+                "illuminate/filesystem": "~5.0",
+                "illuminate/http": "~5.0",
                 "illuminate/support": "~5.0",
+                "illuminate/view": "~5.0",
+                "laravelcollective/html": "~5.0",
+                "league/fractal": "~0.12",
                 "php": ">=5.4.0"
             },
             "require-dev": {
-                "behat/behat": "~2.5.1",
-                "behat/mink": "~1.5.0",
-                "behat/mink-extension": "~1.2.0",
-                "behat/mink-goutte-driver": "~1.0.9",
-                "behat/mink-selenium2-driver": "~1.1.1",
-                "phpspec/phpspec": "~2.0",
-                "phpunit/phpunit": "~3.7"
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "~4.0"
             },
             "type": "library",
             "autoload": {
                 "psr-0": {
-                    "Way\\Generators": "src/"
+                    "yajra\\Datatables": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
-                    "name": "Jeffrey Way",
-                    "email": "jeffrey@jeffrey-way.com"
+                    "name": "Arjay Angeles",
+                    "email": "aqangeles@gmail.com"
                 }
             ],
-            "description": "Rapidly generate resources, migrations, models, and much more.",
-            "time": "2015-02-17 06:26:25"
+            "description": "jQuery DataTables API for Laravel 4|5",
+            "keywords": [
+                "datatable",
+                "datatables",
+                "datatables jquery plugin",
+                "laravel",
+                "laravel4",
+                "laravel5"
+            ],
+            "time": "2015-11-12 08:11:05"
         }
     ],
     "packages-dev": [
@@ -2926,16 +2947,16 @@
         },
         {
             "name": "doctrine/cache",
-            "version": "v1.5.0",
+            "version": "v1.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/cache.git",
-                "reference": "eb8a73619af4f1c8711e2ce482f5de3643258a1f"
+                "reference": "2b9cec5a5e722010cbebc91713d4c11eaa064d5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/eb8a73619af4f1c8711e2ce482f5de3643258a1f",
-                "reference": "eb8a73619af4f1c8711e2ce482f5de3643258a1f",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/2b9cec5a5e722010cbebc91713d4c11eaa064d5e",
+                "reference": "2b9cec5a5e722010cbebc91713d4c11eaa064d5e",
                 "shasum": ""
             },
             "require": {
@@ -2992,7 +3013,7 @@
                 "cache",
                 "caching"
             ],
-            "time": "2015-10-28 11:27:45"
+            "time": "2015-11-02 18:35:48"
         },
         {
             "name": "doctrine/collections",
@@ -3866,16 +3887,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.8.16",
+            "version": "4.8.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "625f8c345606ed0f3a141dfb88f4116f0e22978e"
+                "reference": "fa33d4ad96481b91df343d83e8c8aabed6b1dfd3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/625f8c345606ed0f3a141dfb88f4116f0e22978e",
-                "reference": "625f8c345606ed0f3a141dfb88f4116f0e22978e",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/fa33d4ad96481b91df343d83e8c8aabed6b1dfd3",
+                "reference": "fa33d4ad96481b91df343d83e8c8aabed6b1dfd3",
                 "shasum": ""
             },
             "require": {
@@ -3934,7 +3955,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-10-23 06:48:33"
+            "time": "2015-11-11 11:32:49"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -4459,6 +4480,45 @@
             "time": "2015-10-11 09:39:48"
         },
         {
+            "name": "way/generators",
+            "version": "dev-feature/laravel-five-stable",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:jamisonvalenta/Laravel-4-Generators.git",
+                "reference": "a358bb44f517e2b3c1fd4f848f2646857c75b3a4"
+            },
+            "require": {
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "behat/behat": "~2.5.1",
+                "behat/mink": "~1.5.0",
+                "behat/mink-extension": "~1.2.0",
+                "behat/mink-goutte-driver": "~1.0.9",
+                "behat/mink-selenium2-driver": "~1.1.1",
+                "phpspec/phpspec": "~2.0",
+                "phpunit/phpunit": "~3.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Way\\Generators": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeffrey Way",
+                    "email": "jeffrey@jeffrey-way.com"
+                }
+            ],
+            "description": "Rapidly generate resources, migrations, models, and much more.",
+            "time": "2015-02-17 06:26:25"
+        },
+        {
             "name": "xethron/migrations-generator",
             "version": "dev-l5",
             "source": {
@@ -4511,26 +4571,17 @@
             "time": "2015-02-23 05:43:08"
         }
     ],
-    "aliases": [
-        {
-            "alias": "0.12",
-            "alias_normalized": "0.12.0.0",
-            "version": "9999999-dev",
-            "package": "league/fractal"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
         "dingo/api": 20,
         "laracasts/flash": 20,
         "laravelcollective/html": 20,
-        "bosnadev/repositories": 20,
-        "mitulgolakiya/laravel-api-generator": 20,
+        "julioalves/laravel-api-generator": 20,
         "rmasters/culpa": 20,
         "bestmomo/scafold": 20,
-        "league/fractal": 20,
-        "way/generators": 20,
         "xethron/migrations-generator": 20,
+        "way/generators": 20,
         "jimbolino/laravel-model-builder": 20
     },
     "prefer-stable": false,
