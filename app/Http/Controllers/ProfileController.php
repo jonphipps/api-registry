@@ -5,7 +5,7 @@ use App\Http\Requests\CreateProfileRequest;
 use App\Http\Requests\UpdateProfileRequest;
 use App\Libraries\Repositories\ProfileRepository;
 use Flash;
-use Mitul\Controller\AppBaseController as AppBaseController;
+use Casa\Controller\AppBaseController as AppBaseController;
 use Response;
 
 class ProfileController extends AppBaseController

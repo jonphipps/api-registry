@@ -5,7 +5,7 @@ use App\Http\Requests\CreateElementPropertyHistoryRequest;
 use App\Http\Requests\UpdateElementPropertyHistoryRequest;
 use App\Libraries\Repositories\ElementPropertyHistoryRepository;
 use Flash;
-use Mitul\Controller\AppBaseController as AppBaseController;
+use Casa\Controller\AppBaseController as AppBaseController;
 use Response;
 
 class ElementPropertyHistoryController extends AppBaseController

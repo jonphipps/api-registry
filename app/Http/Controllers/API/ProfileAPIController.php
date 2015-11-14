@@ -4,7 +4,7 @@ use App\Http\Requests;
 use App\Libraries\Repositories\ProfileRepository;
 use App\Models\Profile;
 use Illuminate\Http\Request;
-use Mitul\Controller\AppBaseController as AppBaseController;
+use Casa\Controller\AppBaseController as AppBaseController;
 use Response;
 
 class ProfileAPIController extends AppBaseController

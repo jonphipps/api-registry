@@ -5,7 +5,7 @@ use App\Http\Requests\CreateFileImportHistoryRequest;
 use App\Http\Requests\UpdateFileImportHistoryRequest;
 use App\Libraries\Repositories\FileImportHistoryRepository;
 use Flash;
-use Mitul\Controller\AppBaseController as AppBaseController;
+use Casa\Controller\AppBaseController as AppBaseController;
 use Response;
 
 class FileImportHistoryController extends AppBaseController

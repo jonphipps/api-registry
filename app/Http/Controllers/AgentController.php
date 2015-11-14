@@ -5,7 +5,7 @@ use App\Http\Requests\CreateAgentRequest;
 use App\Http\Requests\UpdateAgentRequest;
 use App\Libraries\Repositories\AgentRepository;
 use Flash;
-use Mitul\Controller\AppBaseController as AppBaseController;
+use Casa\Controller\AppBaseController as AppBaseController;
 use Response;
 
 class AgentController extends AppBaseController

@@ -5,7 +5,7 @@ use App\Http\Requests\CreateStatusRequest;
 use App\Http\Requests\UpdateStatusRequest;
 use App\Libraries\Repositories\StatusRepository;
 use Flash;
-use Mitul\Controller\AppBaseController as AppBaseController;
+use Casa\Controller\AppBaseController as AppBaseController;
 use Response;
 
 class StatusController extends AppBaseController

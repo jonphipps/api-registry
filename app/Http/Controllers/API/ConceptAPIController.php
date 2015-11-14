@@ -10,7 +10,7 @@ use Dingo\Api\Transformer\Binding;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use League\Fractal\Resource\Item;
-use Mitul\Controller\AppBaseController as AppBaseController;
+use Casa\Controller\AppBaseController as AppBaseController;
 use Response;
 use SimpleXMLElement;
 use Symfony\Component\HttpKernel\Exception\HttpException;

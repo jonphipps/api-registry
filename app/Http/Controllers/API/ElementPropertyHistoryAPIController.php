@@ -4,7 +4,7 @@ use App\Http\Requests;
 use App\Libraries\Repositories\ElementPropertyHistoryRepository;
 use App\Models\ElementPropertyHistory;
 use Illuminate\Http\Request;
-use Mitul\Controller\AppBaseController as AppBaseController;
+use Casa\Controller\AppBaseController as AppBaseController;
 use Response;
 
 class ElementPropertyHistoryAPIController extends AppBaseController

@@ -5,7 +5,7 @@ use App\Http\Requests\CreateConceptRequest;
 use App\Http\Requests\UpdateConceptRequest;
 use App\Libraries\Repositories\ConceptRepository;
 use Flash;
-use Mitul\Controller\AppBaseController as AppBaseController;
+use Casa\Controller\AppBaseController as AppBaseController;
 use Response;
 
 class ConceptController extends AppBaseController

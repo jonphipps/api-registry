@@ -5,7 +5,7 @@ use App\Http\Requests\CreatePrefixRequest;
 use App\Http\Requests\UpdatePrefixRequest;
 use App\Libraries\Repositories\PrefixRepository;
 use Flash;
-use Mitul\Controller\AppBaseController as AppBaseController;
+use Casa\Controller\AppBaseController as AppBaseController;
 use Response;
 
 class PrefixController extends AppBaseController

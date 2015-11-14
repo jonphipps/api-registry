@@ -6,7 +6,7 @@ namespace App\Providers;
     use Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider;
     use Bestmomo\Scafold\ScafoldServiceProvider;
     use Illuminate\Support\ServiceProvider;
-    use Mitul\Generator\GeneratorServiceProvider;
+    use Casa\Generator\GeneratorServiceProvider;
     use Way\Generators\GeneratorsServiceProvider;
     use Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider;
 

@@ -5,7 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Libraries\Repositories\ConceptRepository;
 use App\Libraries\Repositories\ElementRepository;
 use Dingo\Api\Http\Request;
-use Mitul\Controller\AppBaseController as AppBaseController;
+use Casa\Controller\AppBaseController as AppBaseController;
 use Dingo\Api\Routing\Helpers;
 use App\Http\Requests;
 

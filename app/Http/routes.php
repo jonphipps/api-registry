@@ -88,12 +88,12 @@ $api->version('v1', function ($api)
 
     $api->get('errors/{id}', function ($id)
     {
-        return \Mitul\Generator\Errors::getErrors([$id]);
+        return \Casa\Generator\Errors::getErrors([$id]);
     });
 
     $api->get('errors', function ()
     {
-        return \Mitul\Generator\Errors::getErrors([], [], true);
+        return \Casa\Generator\Errors::getErrors([], [], true);
     });
 
     $api->get('/', function ()

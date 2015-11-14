@@ -5,7 +5,7 @@ use App\Http\Requests\CreateElementRequest;
 use App\Http\Requests\UpdateElementRequest;
 use App\Libraries\Repositories\ElementRepository;
 use Flash;
-use Mitul\Controller\AppBaseController as AppBaseController;
+use Casa\Controller\AppBaseController as AppBaseController;
 use Response;
 
 class ElementController extends AppBaseController

@@ -5,7 +5,7 @@ use App\Http\Requests\CreateConceptPropertyHistoryRequest;
 use App\Http\Requests\UpdateConceptPropertyHistoryRequest;
 use App\Libraries\Repositories\ConceptPropertyHistoryRepository;
 use Flash;
-use Mitul\Controller\AppBaseController as AppBaseController;
+use Casa\Controller\AppBaseController as AppBaseController;
 use Response;
 
 class ConceptPropertyHistoryController extends AppBaseController

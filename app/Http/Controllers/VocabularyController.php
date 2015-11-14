@@ -5,7 +5,7 @@ use App\Http\Requests\CreateVocabularyRequest;
 use App\Http\Requests\UpdateVocabularyRequest;
 use App\Libraries\Repositories\VocabularyRepository;
 use Flash;
-use Mitul\Controller\AppBaseController as AppBaseController;
+use Casa\Controller\AppBaseController as AppBaseController;
 use Response;
 
 class VocabularyController extends AppBaseController
