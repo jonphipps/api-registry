@@ -149,10 +149,16 @@ return [
          * Third party service providers
          */
         Dingo\Api\Provider\LaravelServiceProvider::class,
+        Way\Generators\GeneratorsServiceProvider::class,
+        Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
+        Mitul\Generator\GeneratorServiceProvider::class,
         GrahamCampbell\Exceptions\ExceptionsServiceProvider::class,
         Culpa\CulpaServiceProvider::class,
+        Bestmomo\Scafold\ScafoldServiceProvider::class,
     ],
 
     /*
@@ -201,6 +207,7 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
+        'Debugbar'  => Barryvdh\Debugbar\Facade::class,
         'Form'      => Collective\Html\FormFacade::class,
         'Html'      => Collective\Html\HtmlFacade::class,
         'Flash'     => Laracasts\Flash\Flash::class,
