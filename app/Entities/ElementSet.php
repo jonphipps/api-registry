@@ -73,7 +73,7 @@ class ElementSet extends Model
     use SoftDeletes;
 
     public $table = "reg_schema";
-    
+
     protected $dates = ['deleted_at'];
 
     protected $fillable = array('deleted_at', 'name', 'note', 'uri', 'url',
@@ -107,9 +107,22 @@ class ElementSet extends Model
         "repo" => "string"
     ];
 
-    public static $rules = [
-
-    ];
+	public static $rules = [
+	    "agent_id" => "required|",
+		"name" => "required|max:255",
+		"note" => "max:65535",
+		"uri" => "required|max:255",
+		"url" => "max:255",
+		"base_domain" => "required|max:255",
+		"token" => "required|max:45",
+		"community" => "max:45",
+		"status_id" => "required|",
+		"language" => "required|max:6",
+		"ns_type" => "required|max:6",
+		"prefixes" => "max:65535",
+		"languages" => "max:65535",
+		"repo" => "required|max:255"
+	];
 
     public function UserCreator()
     {
