@@ -57,23 +57,23 @@ class ElementPropertyHistory extends Model
      */
     protected $casts = [
         "id" => "integer",
-		"created_user_id" => "integer",
-		"action" => "string",
-		"schema_property_element_id" => "integer",
-		"schema_property_id" => "integer",
-		"schema_id" => "integer",
-		"profile_property_id" => "integer",
-		"object" => "string",
-		"related_schema_property_id" => "integer",
-		"language" => "string",
-		"status_id" => "integer",
-		"change_note" => "string",
-		"import_id" => "integer"
+        "created_user_id" => "integer",
+        "action" => "string",
+        "schema_property_element_id" => "integer",
+        "schema_property_id" => "integer",
+        "schema_id" => "integer",
+        "profile_property_id" => "integer",
+        "object" => "string",
+        "related_schema_property_id" => "integer",
+        "language" => "string",
+        "status_id" => "integer",
+        "change_note" => "string",
+        "import_id" => "integer"
     ];
 
-	public static $rules = [
-	    
-	];
+    public static $rules = [
+
+    ];
 
     public function UserCreator()
     {

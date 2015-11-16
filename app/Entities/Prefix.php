@@ -32,12 +32,12 @@ class Prefix extends Model
      */
     protected $casts = [
         "prefix" => "string",
-		"uri" => "string",
-		"rank" => "integer"
+        "uri" => "string",
+        "rank" => "integer"
     ];
 
-	public static $rules = [
-	    
-	];
+    public static $rules = [
+
+    ];
 
 }

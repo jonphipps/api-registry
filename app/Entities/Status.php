@@ -40,14 +40,14 @@ class Status extends Model
      */
     protected $casts = [
         "id" => "integer",
-		"display_order" => "integer",
-		"display_name" => "string",
-		"uri" => "string"
+        "display_order" => "integer",
+        "display_name" => "string",
+        "uri" => "string"
     ];
 
-	public static $rules = [
-	    
-	];
+    public static $rules = [
+
+    ];
 
     public function profiles()
     {
