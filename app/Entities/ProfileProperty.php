@@ -52,7 +52,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\ProfileProperty[] $InverseProfileProperties
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\ConceptProperty[] $SkosProperties
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\ElementProperty[] $ElementProperties
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\ElementPropertyHistory[] $ElementPropertyHistories
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\ElementPropertyHistory[] $ElementPropertyHistory
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\ProfileProperty whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\ProfileProperty whereSkosId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\ProfileProperty whereCreatedAt($value)
@@ -97,7 +97,7 @@ class ProfileProperty extends Model
 
     protected $table = 'profile_property';
     
-	protected $dates = ['deleted_at'];
+    protected $dates = ['deleted_at'];
 
 
     protected $fillable = array('skos_id', 'deleted_at', 'skos_parent_id', 'name', 'label', 'definition', 'comment',
@@ -112,44 +112,44 @@ class ProfileProperty extends Model
      */
     protected $casts = [
         "id" => "integer",
-		"skos_id" => "integer",
-		"created_by" => "integer",
-		"updated_by" => "integer",
-		"deleted_by" => "integer",
-		"profile_id" => "integer",
-		"skos_parent_id" => "integer",
-		"name" => "string",
-		"label" => "string",
-		"definition" => "string",
-		"comment" => "string",
-		"type" => "string",
-		"uri" => "string",
-		"status_id" => "integer",
-		"language" => "string",
-		"note" => "string",
-		"display_order" => "integer",
-		"export_order" => "integer",
-		"picklist_order" => "integer",
-		"examples" => "string",
-		"is_required" => "boolean",
-		"is_reciprocal" => "boolean",
-		"is_singleton" => "boolean",
-		"is_in_picklist" => "boolean",
-		"is_in_export" => "boolean",
-		"inverse_profile_property_id" => "integer",
-		"is_in_class_picklist" => "boolean",
-		"is_in_property_picklist" => "boolean",
-		"is_in_rdf" => "boolean",
-		"is_in_xsd" => "boolean",
-		"is_attribute" => "boolean",
-		"has_language" => "boolean",
-		"is_object_prop" => "boolean",
-		"is_in_form" => "boolean"
+        "skos_id" => "integer",
+        "created_by" => "integer",
+        "updated_by" => "integer",
+        "deleted_by" => "integer",
+        "profile_id" => "integer",
+        "skos_parent_id" => "integer",
+        "name" => "string",
+        "label" => "string",
+        "definition" => "string",
+        "comment" => "string",
+        "type" => "string",
+        "uri" => "string",
+        "status_id" => "integer",
+        "language" => "string",
+        "note" => "string",
+        "display_order" => "integer",
+        "export_order" => "integer",
+        "picklist_order" => "integer",
+        "examples" => "string",
+        "is_required" => "boolean",
+        "is_reciprocal" => "boolean",
+        "is_singleton" => "boolean",
+        "is_in_picklist" => "boolean",
+        "is_in_export" => "boolean",
+        "inverse_profile_property_id" => "integer",
+        "is_in_class_picklist" => "boolean",
+        "is_in_property_picklist" => "boolean",
+        "is_in_rdf" => "boolean",
+        "is_in_xsd" => "boolean",
+        "is_attribute" => "boolean",
+        "has_language" => "boolean",
+        "is_object_prop" => "boolean",
+        "is_in_form" => "boolean"
     ];
 
-	public static $rules = [
-	    
-	];
+    public static $rules = [
+
+    ];
 
     public function getNameAttribute($value)
     {
@@ -206,7 +206,7 @@ class ProfileProperty extends Model
         return $this->hasMany('App\Entities\ElementProperty', 'profile_property_id', 'id');
     }
 
-    public function ElementPropertyHistories()
+    public function ElementPropertyHistory()
     {
         return $this->hasMany('App\Entities\ElementPropertyHistory', 'profile_property_id', 'id');
     }

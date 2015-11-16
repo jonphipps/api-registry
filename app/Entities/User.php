@@ -46,7 +46,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\Element[] $ElementsUpdated
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\ElementProperty[] $ElementPropertiesCreated
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\ElementProperty[] $ElementPropertiesUpdated
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\ElementPropertyHistory[] $ElementPropertyHistoriesCreated
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\ElementPropertyHistory[] $ElementPropertyHistoryCreated
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\Vocabulary[] $VocabulariesCreated
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\Vocabulary[] $VocabulariesUpdated
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\Vocabulary[] $Vocabularies
@@ -76,7 +76,7 @@ class User extends Model
 
     protected $table = 'reg_user';
     
-	protected $dates = ['deleted_at'];
+    protected $dates = ['deleted_at'];
 
 
     protected $fillable = array('last_updated', 'deleted_at', 'nickname', 'salutation', 'first_name', 'last_name',
@@ -91,24 +91,24 @@ class User extends Model
      */
     protected $casts = [
         "id" => "integer",
-		"nickname" => "string",
-		"salutation" => "string",
-		"first_name" => "string",
-		"last_name" => "string",
-		"email" => "string",
-		"sha1_password" => "string",
-		"salt" => "string",
-		"want_to_be_moderator" => "boolean",
-		"is_moderator" => "boolean",
-		"is_administrator" => "boolean",
-		"deletions" => "integer",
-		"password" => "string",
-		"culture" => "string"
+        "nickname" => "string",
+        "salutation" => "string",
+        "first_name" => "string",
+        "last_name" => "string",
+        "email" => "string",
+        "sha1_password" => "string",
+        "salt" => "string",
+        "want_to_be_moderator" => "boolean",
+        "is_moderator" => "boolean",
+        "is_administrator" => "boolean",
+        "deletions" => "integer",
+        "password" => "string",
+        "culture" => "string"
     ];
 
-	public static $rules = [
-	    
-	];
+    public static $rules = [
+
+    ];
 
     public function ProfilesUpdated()
     {
@@ -230,7 +230,7 @@ class User extends Model
         return $this->hasMany('App\Entities\ElementProperty', 'updated_user_id', 'id');
     }
 
-    public function ElementPropertyHistoriesCreated()
+    public function ElementPropertyHistoryCreated()
     {
         return $this->hasMany('App\Entities\ElementPropertyHistory', 'created_user_id', 'id');
     }

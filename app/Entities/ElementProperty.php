@@ -27,7 +27,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property-read \App\Entities\Element $RelatedSchemaProperty
  * @property-read \App\Entities\Status $Status
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\Discuss[] $Discussions
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\ElementPropertyHistory[] $ElementPropertyHistories
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\ElementPropertyHistory[] $ElementPropertyHistory
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\ElementProperty whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\ElementProperty whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\ElementProperty whereUpdatedAt($value)
@@ -49,7 +49,7 @@ class ElementProperty extends Model
 
     protected $table = 'reg_schema_property_element';
     
-	protected $dates = ['deleted_at'];
+    protected $dates = ['deleted_at'];
 
 
     protected $fillable = array('deleted_at', 'is_schema_property', 'object', 'language', 'is_generated');
@@ -62,21 +62,21 @@ class ElementProperty extends Model
      */
     protected $casts = [
         "id" => "integer",
-		"created_user_id" => "integer",
-		"updated_user_id" => "integer",
-		"schema_property_id" => "integer",
-		"profile_property_id" => "integer",
-		"is_schema_property" => "boolean",
-		"object" => "string",
-		"related_schema_property_id" => "integer",
-		"language" => "string",
-		"status_id" => "integer",
-		"is_generated" => "boolean"
+        "created_user_id" => "integer",
+        "updated_user_id" => "integer",
+        "schema_property_id" => "integer",
+        "profile_property_id" => "integer",
+        "is_schema_property" => "boolean",
+        "object" => "string",
+        "related_schema_property_id" => "integer",
+        "language" => "string",
+        "status_id" => "integer",
+        "is_generated" => "boolean"
     ];
 
-	public static $rules = [
-	    
-	];
+    public static $rules = [
+
+    ];
 
     public function ProfileProperty()
     {
@@ -113,7 +113,7 @@ class ElementProperty extends Model
         return $this->hasMany('App\Entities\Discuss', 'schema_property_element_id', 'id');
     }
 
-    public function ElementPropertyHistories()
+    public function ElementPropertyHistory()
     {
         return $this->hasMany('App\Entities\ElementPropertyHistory', 'schema_property_element_id', 'id');
     }

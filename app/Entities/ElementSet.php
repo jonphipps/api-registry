@@ -36,10 +36,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property-read \App\Entities\Profile $Profile
  * @property-read \App\Entities\Status $Status
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\Discuss[] $Discussions
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\FileImportHistory[] $FileImportHistories
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\FileImportHistory[] $FileImportHistory
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\RdfNamespace[] $RdfNamespaces
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\Element[] $Elements
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\ElementPropertyHistory[] $ElementPropertyHistories
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\ElementPropertyHistory[] $ElementPropertyHistory
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\ElementSetHasUser[] $ElementSetHasUsers
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\ElementSetHasVersion[] $ElementSetHasVersions
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\ElementSet[] $Users
@@ -72,12 +72,12 @@ class ElementSet extends Model
 {
     use SoftDeletes;
 
-	public $table = "reg_schema";
+    public $table = "reg_schema";
     
-	protected $dates = ['deleted_at'];
+    protected $dates = ['deleted_at'];
 
-	protected $fillable = array('deleted_at', 'name', 'note', 'uri', 'url',
-			'base_domain', 'token', 'community', 'last_uri_id', 'language', 'ns_type', 'prefixes', 'languages', 'repo');
+    protected $fillable = array('deleted_at', 'name', 'note', 'uri', 'url',
+            'base_domain', 'token', 'community', 'last_uri_id', 'language', 'ns_type', 'prefixes', 'languages', 'repo');
 
     /**
      * The attributes that should be casted to native types.
@@ -86,102 +86,102 @@ class ElementSet extends Model
      */
     protected $casts = [
         "id" => "integer",
-		"agent_id" => "integer",
-		"created_user_id" => "integer",
-		"updated_user_id" => "integer",
-		"child_updated_user_id" => "integer",
-		"name" => "string",
-		"note" => "string",
-		"uri" => "string",
-		"url" => "string",
-		"base_domain" => "string",
-		"token" => "string",
-		"community" => "string",
-		"last_uri_id" => "integer",
-		"status_id" => "integer",
-		"language" => "string",
-		"profile_id" => "integer",
-		"ns_type" => "string",
-		"prefixes" => "string",
-		"languages" => "string",
-		"repo" => "string"
+        "agent_id" => "integer",
+        "created_user_id" => "integer",
+        "updated_user_id" => "integer",
+        "child_updated_user_id" => "integer",
+        "name" => "string",
+        "note" => "string",
+        "uri" => "string",
+        "url" => "string",
+        "base_domain" => "string",
+        "token" => "string",
+        "community" => "string",
+        "last_uri_id" => "integer",
+        "status_id" => "integer",
+        "language" => "string",
+        "profile_id" => "integer",
+        "ns_type" => "string",
+        "prefixes" => "string",
+        "languages" => "string",
+        "repo" => "string"
     ];
 
-	public static $rules = [
-	    
-	];
+    public static $rules = [
 
-	public function UserCreator()
-	{
-		return $this->belongsTo('App\Entities\User', 'created_user_id', 'id');
-	}
+    ];
 
-	public function UserUpdater()
-	{
-		return $this->belongsTo('App\Entities\User', 'updated_user_id', 'id');
-	}
+    public function UserCreator()
+    {
+        return $this->belongsTo('App\Entities\User', 'created_user_id', 'id');
+    }
 
-	public function Agent()
-	{
-		return $this->belongsTo('App\Entities\Agent', 'agent_id', 'id');
-	}
+    public function UserUpdater()
+    {
+        return $this->belongsTo('App\Entities\User', 'updated_user_id', 'id');
+    }
 
-	public function Profile()
-	{
-		return $this->belongsTo('App\Entities\Profile', 'profile_id', 'id');
-	}
+    public function Agent()
+    {
+        return $this->belongsTo('App\Entities\Agent', 'agent_id', 'id');
+    }
 
-	public function Status()
-	{
-		return $this->belongsTo('App\Entities\Status', 'status_id', 'id');
-	}
+    public function Profile()
+    {
+        return $this->belongsTo('App\Entities\Profile', 'profile_id', 'id');
+    }
 
-	public function Discussions()
-	{
-		return $this->hasMany('App\Entities\Discuss', 'schema_id', 'id');
-	}
+    public function Status()
+    {
+        return $this->belongsTo('App\Entities\Status', 'status_id', 'id');
+    }
 
-	public function FileImportHistories()
-	{
-		return $this->hasMany('App\Entities\FileImportHistory', 'schema_id', 'id');
-	}
+    public function Discussions()
+    {
+        return $this->hasMany('App\Entities\Discuss', 'schema_id', 'id');
+    }
 
-	public function RdfNamespaces()
-	{
-		return $this->hasMany('App\Entities\RdfNamespace', 'schema_id', 'id');
-	}
+    public function FileImportHistory()
+    {
+        return $this->hasMany('App\Entities\FileImportHistory', 'schema_id', 'id');
+    }
 
-	public function Elements()
-	{
-		return $this->hasMany('App\Entities\Element', 'schema_id', 'id');
-	}
+    public function RdfNamespaces()
+    {
+        return $this->hasMany('App\Entities\RdfNamespace', 'schema_id', 'id');
+    }
 
-	public function ElementPropertyHistories()
-	{
-		return $this->hasMany('App\Entities\ElementPropertyHistory', 'schema_id', 'id');
-	}
+    public function Elements()
+    {
+        return $this->hasMany('App\Entities\Element', 'schema_id', 'id');
+    }
 
-	public function ElementSetHasUsers()
-	{
-		return $this->hasMany('App\Entities\ElementSetHasUser', 'schema_id', 'id');
-	}
+    public function ElementPropertyHistory()
+    {
+        return $this->hasMany('App\Entities\ElementPropertyHistory', 'schema_id', 'id');
+    }
 
-	public function ElementSetHasVersions()
-	{
-		return $this->hasMany('App\Entities\ElementSetHasVersion', 'schema_id', 'id');
-	}
+    public function ElementSetHasUsers()
+    {
+        return $this->hasMany('App\Entities\ElementSetHasUser', 'schema_id', 'id');
+    }
 
-	/**
-	 * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-	 */
-	public function Users()
-	{
-		return $this->belongsToMany('App\Entities\ElementSet', 'SchemaHasUser')
-				->withPivot('is_maintainer_for',
-						'is_registrar_for', 'is_admin_for', 'languages',
-						'default_language', 'current_language')
-				->withTimestamps();
-	}
+    public function ElementSetHasVersions()
+    {
+        return $this->hasMany('App\Entities\ElementSetHasVersion', 'schema_id', 'id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function Users()
+    {
+        return $this->belongsToMany('App\Entities\ElementSet', 'SchemaHasUser')
+                ->withPivot('is_maintainer_for',
+                        'is_registrar_for', 'is_admin_for', 'languages',
+                        'default_language', 'current_language')
+                ->withTimestamps();
+    }
 
 
 }

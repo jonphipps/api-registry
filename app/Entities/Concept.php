@@ -27,8 +27,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property-read \App\Entities\Status $Status
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\ConceptProperty[] $ConceptProperties
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\ConceptProperty[] $RelatedConceptProperties
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\ConceptPropertyHistory[] $RelatedConceptPropertyHistories
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\ConceptPropertyHistory[] $ConceptPropertyHistories
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\ConceptPropertyHistory[] $RelatedConceptPropertyHistory
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\ConceptPropertyHistory[] $ConceptPropertyHistory
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\Discuss[] $Discussions
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\Concept whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\Concept whereCreatedAt($value)
@@ -51,7 +51,7 @@ class Concept extends Model
 
     use SoftDeletes;
 
-	protected $dates = ['deleted_at', 'last_updated'];
+    protected $dates = ['deleted_at', 'last_updated'];
 
 
     protected $fillable = array('deleted_at', 'last_updated', 'uri', 'pref_label', 'is_top_concept', 'language');
@@ -64,24 +64,24 @@ class Concept extends Model
      */
     protected $casts = [
         "id" => "integer",
-		"created_user_id" => "integer",
-		"updated_user_id" => "integer",
-		"uri" => "string",
-		"pref_label" => "string",
-		"vocabulary_id" => "integer",
-		"is_top_concept" => "boolean",
-		"pref_label_id" => "integer",
-		"status_id" => "integer",
-		"language" => "string"
+        "created_user_id" => "integer",
+        "updated_user_id" => "integer",
+        "uri" => "string",
+        "pref_label" => "string",
+        "vocabulary_id" => "integer",
+        "is_top_concept" => "boolean",
+        "pref_label_id" => "integer",
+        "status_id" => "integer",
+        "language" => "string"
     ];
 
-	public static $rules = [
-	    "updated_at" => "required|",
-		"uri" => "required|max:255",
-		"pref_label" => "required|max:255",
-		"status_id" => "required|",
-		"language" => "required|max:6"
-	];
+    public static $rules = [
+        "updated_at" => "required|",
+        "uri" => "required|max:255",
+        "pref_label" => "required|max:255",
+        "status_id" => "required|",
+        "language" => "required|max:6"
+    ];
 
     public function Vocabulary()
     {

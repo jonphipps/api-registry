@@ -24,8 +24,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property-read \App\Entities\Vocabulary $Vocabulary
  * @property-read \App\Entities\ElementSet $ElementSet
  * @property-read \App\Entities\Batch $Batch
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\ConceptPropertyHistory[] $ConceptPropertyHistories
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\ElementPropertyHistory[] $ElementPropertyHistories
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\ConceptPropertyHistory[] $ConceptPropertyHistory
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\ElementPropertyHistory[] $ElementPropertyHistory
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\FileImportHistory whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\FileImportHistory whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\FileImportHistory whereMap($value)
@@ -55,23 +55,23 @@ class FileImportHistory extends Model
      */
     protected $casts = [
         "id" => "integer",
-		"map" => "string",
-		"user_id" => "integer",
-		"vocabulary_id" => "integer",
-		"schema_id" => "integer",
-		"file_name" => "string",
-		"source_file_name" => "string",
-		"file_type" => "string",
-		"batch_id" => "integer",
-		"results" => "string",
-		"total_processed_count" => "integer",
-		"error_count" => "integer",
-		"success_count" => "integer"
+        "map" => "string",
+        "user_id" => "integer",
+        "vocabulary_id" => "integer",
+        "schema_id" => "integer",
+        "file_name" => "string",
+        "source_file_name" => "string",
+        "file_type" => "string",
+        "batch_id" => "integer",
+        "results" => "string",
+        "total_processed_count" => "integer",
+        "error_count" => "integer",
+        "success_count" => "integer"
     ];
 
-	public static $rules = [
-	    
-	];
+    public static $rules = [
+
+    ];
 
     public function User()
     {
@@ -93,12 +93,12 @@ class FileImportHistory extends Model
         return $this->belongsTo('App\Entities\Batch', 'batch_id', 'id');
     }
 
-    public function ConceptPropertyHistories()
+    public function ConceptPropertyHistory()
     {
         return $this->hasMany('App\Entities\ConceptPropertyHistory', 'import_id', 'id');
     }
 
-    public function ElementPropertyHistories()
+    public function ElementPropertyHistory()
     {
         return $this->hasMany('App\Entities\ElementPropertyHistory', 'import_id', 'id');
     }

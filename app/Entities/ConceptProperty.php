@@ -30,7 +30,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property-read \App\Entities\Status $Status
  * @property-read \App\Entities\Concept $RelatedConcept
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\Concept[] $PrefLabelConcept
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\ConceptPropertyHistory[] $ConceptPropertyHistories
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\ConceptPropertyHistory[] $ConceptPropertyHistory
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\Discuss[] $Discussions
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\ConceptProperty whereId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\ConceptProperty whereCreatedAt($value)
@@ -55,7 +55,7 @@ class ConceptProperty extends Model
 
     protected $table = 'reg_concept_property';
     
-	protected $dates = ['deleted_at', 'last_updated'];
+    protected $dates = ['deleted_at', 'last_updated'];
 
 
     protected $fillable = array('deleted_at', 'last_updated', 'primary_pref_label', 'object', 'language',
@@ -70,22 +70,22 @@ class ConceptProperty extends Model
      */
     protected $casts = [
         "id" => "integer",
-		"created_user_id" => "integer",
-		"updated_user_id" => "integer",
-		"concept_id" => "integer",
-		"primary_pref_label" => "boolean",
-		"skos_property_id" => "integer",
-		"object" => "string",
-		"scheme_id" => "integer",
-		"related_concept_id" => "integer",
-		"language" => "string",
-		"status_id" => "integer",
-		"is_concept_property" => "boolean"
+        "created_user_id" => "integer",
+        "updated_user_id" => "integer",
+        "concept_id" => "integer",
+        "primary_pref_label" => "boolean",
+        "skos_property_id" => "integer",
+        "object" => "string",
+        "scheme_id" => "integer",
+        "related_concept_id" => "integer",
+        "language" => "string",
+        "status_id" => "integer",
+        "is_concept_property" => "boolean"
     ];
 
-	public static $rules = [
-	    
-	];
+    public static $rules = [
+
+    ];
 
 
     /** ===============
@@ -139,7 +139,7 @@ class ConceptProperty extends Model
         return $this->hasMany('App\Entities\Concept', 'pref_label_id', 'id');
     }
 
-    public function ConceptPropertyHistories()
+    public function ConceptPropertyHistory()
     {
         return $this->hasMany('App\Entities\ConceptPropertyHistory', 'concept_property_id', 'id');
     }

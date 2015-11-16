@@ -41,7 +41,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\Concept[] $Concepts
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\ConceptProperty[] $ConceptProperties
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\ConceptPropertyHistory[] $ConceptPropertyHistoryObjects
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\ConceptPropertyHistory[] $ConceptPropertyHistories
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\ConceptPropertyHistory[] $ConceptPropertyHistory
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\Discuss[] $Discussions
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\FileImportHistory[] $FileImportHistory
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Entities\VocabularyHasVersion[] $Versions
@@ -175,7 +175,7 @@ class Vocabulary extends Model
         return $this->hasMany('App\Entities\ConceptPropertyHistory', 'scheme_id', 'id');
     }
 
-    public function ConceptPropertyHistories()
+    public function ConceptPropertyHistory()
     {
         return $this->hasMany('App\Entities\ConceptPropertyHistory', 'vocabulary_id', 'id');
     }
