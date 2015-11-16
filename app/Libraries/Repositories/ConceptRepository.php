@@ -3,7 +3,7 @@
 use App\Models\Concept;
 use App\Models\ConceptProperty;
 use App\Models\ProfileProperty;
-use Bosnadev\Repositories\Eloquent\Repository;
+use Prettus\Repositories\Eloquent\Repository;
 use Schema;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
