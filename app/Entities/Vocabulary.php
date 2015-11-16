@@ -77,7 +77,7 @@ class Vocabulary extends Model
 
     protected $table = 'reg_vocabulary';
     
-	protected $dates = ['deleted_at', 'last_updated'];
+    protected $dates = ['deleted_at', 'last_updated'];
 
 
     protected $fillable = array('deleted_at', 'last_updated', 'name', 'note', 'uri', 'url',
@@ -92,31 +92,31 @@ class Vocabulary extends Model
      */
     protected $casts = [
         "id" => "integer",
-		"agent_id" => "integer",
-		"created_user_id" => "integer",
-		"updated_user_id" => "integer",
-		"child_updated_user_id" => "integer",
-		"name" => "string",
-		"note" => "string",
-		"uri" => "string",
-		"url" => "string",
-		"base_domain" => "string",
-		"token" => "string",
-		"community" => "string",
-		"last_uri_id" => "integer",
-		"status_id" => "integer",
-		"language" => "string",
-		"languages" => "string",
-		"profile_id" => "integer",
-		"ns_type" => "string",
-		"prefixes" => "string",
-		"repos" => "string",
-		"repo" => "string"
+        "agent_id" => "integer",
+        "created_user_id" => "integer",
+        "updated_user_id" => "integer",
+        "child_updated_user_id" => "integer",
+        "name" => "string",
+        "note" => "string",
+        "uri" => "string",
+        "url" => "string",
+        "base_domain" => "string",
+        "token" => "string",
+        "community" => "string",
+        "last_uri_id" => "integer",
+        "status_id" => "integer",
+        "language" => "string",
+        "languages" => "string",
+        "profile_id" => "integer",
+        "ns_type" => "string",
+        "prefixes" => "string",
+        "repos" => "string",
+        "repo" => "string"
     ];
 
-	public static $rules = [
-	    
-	];
+    public static $rules = [
+
+    ];
 
     public function UserCreator()
     {
