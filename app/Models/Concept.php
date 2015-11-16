@@ -1,4 +1,4 @@
-<?php namespace App\Models;
+<?php namespace App\Entities;
 
 use Illuminate\Database\Eloquent\Model as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -76,7 +76,11 @@ class Concept extends Model
     ];
 
 	public static $rules = [
-	    
+	    "updated_at" => "required|",
+		"uri" => "required|max:255",
+		"pref_label" => "required|max:255",
+		"status_id" => "required|",
+		"language" => "required|max:6"
 	];
 
     public function Vocabulary()
@@ -89,7 +93,7 @@ class Concept extends Model
         return $this->belongsTo('App\Models\User', 'created_user_id', 'id');
     }
 
-    public function PrefLabelConceptProperty()
+    public function PrefLabelProperty()
     {
         return $this->belongsTo('App\Models\ConceptProperty', 'pref_label_id', 'id');
     }
@@ -104,22 +108,22 @@ class Concept extends Model
         return $this->belongsTo('App\Models\Status', 'status_id', 'id');
     }
 
-    public function ConceptProperties()
+    public function Properties()
     {
         return $this->hasMany('App\Models\ConceptProperty', 'concept_id', 'id');
     }
 
-    public function RelatedConceptProperties()
+    public function RelatedProperties()
     {
         return $this->hasMany('App\Models\ConceptProperty', 'related_concept_id', 'id');
     }
 
-    public function RelatedConceptPropertyHistories()
+    public function RelatedPropertyHistory()
     {
         return $this->hasMany('App\Models\ConceptPropertyHistory', 'related_concept_id', 'id');
     }
 
-    public function ConceptPropertyHistories()
+    public function History()
     {
         return $this->hasMany('App\Models\ConceptPropertyHistory', 'concept_id', 'id');
     }
