@@ -55,23 +55,23 @@ class FileImportHistory extends Model
      */
     protected $casts = [
         "id" => "integer",
-		"map" => "string",
-		"user_id" => "integer",
-		"vocabulary_id" => "integer",
-		"schema_id" => "integer",
-		"file_name" => "string",
-		"source_file_name" => "string",
-		"file_type" => "string",
-		"batch_id" => "integer",
-		"results" => "string",
-		"total_processed_count" => "integer",
-		"error_count" => "integer",
-		"success_count" => "integer"
+        "map" => "string",
+        "user_id" => "integer",
+        "vocabulary_id" => "integer",
+        "schema_id" => "integer",
+        "file_name" => "string",
+        "source_file_name" => "string",
+        "file_type" => "string",
+        "batch_id" => "integer",
+        "results" => "string",
+        "total_processed_count" => "integer",
+        "error_count" => "integer",
+        "success_count" => "integer"
     ];
 
-	public static $rules = [
-	    
-	];
+    public static $rules = [
+
+    ];
 
     public function User()
     {

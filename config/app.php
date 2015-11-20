@@ -155,10 +155,11 @@ return [
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
-        Mitul\Generator\GeneratorServiceProvider::class,
+        Casa\Generator\GeneratorServiceProvider::class,
         GrahamCampbell\Exceptions\ExceptionsServiceProvider::class,
         Culpa\CulpaServiceProvider::class,
         Bestmomo\Scafold\ScafoldServiceProvider::class,
+        Clockwork\Support\Laravel\ClockworkServiceProvider::class,
     ],
 
     /*
@@ -211,6 +212,7 @@ return [
         'Form'      => Collective\Html\FormFacade::class,
         'Html'      => Collective\Html\HtmlFacade::class,
         'Flash'     => Laracasts\Flash\Flash::class,
+        'Clockwork' => Clockwork\Support\Laravel\Facade::class,
     ],
 
 ];

@@ -51,7 +51,7 @@ class Agent extends Model
 
     protected $table = 'reg_agent';
     
-	protected $dates = ['deleted_at', 'last_updated'];
+    protected $dates = ['deleted_at', 'last_updated'];
 
 
     protected $fillable = array('last_updated', 'deleted_at', 'org_email', 'org_name', 'ind_affiliation', 'ind_role',
@@ -64,24 +64,24 @@ class Agent extends Model
      */
     protected $casts = [
         "id" => "integer",
-		"org_email" => "string",
-		"org_name" => "string",
-		"ind_affiliation" => "string",
-		"ind_role" => "string",
-		"address1" => "string",
-		"address2" => "string",
-		"city" => "string",
-		"state" => "string",
-		"postal_code" => "string",
-		"country" => "string",
-		"phone" => "string",
-		"web_address" => "string",
-		"type" => "string"
+        "org_email" => "string",
+        "org_name" => "string",
+        "ind_affiliation" => "string",
+        "ind_role" => "string",
+        "address1" => "string",
+        "address2" => "string",
+        "city" => "string",
+        "state" => "string",
+        "postal_code" => "string",
+        "country" => "string",
+        "phone" => "string",
+        "web_address" => "string",
+        "type" => "string"
     ];
 
-	public static $rules = [
-	    
-	];
+    public static $rules = [
+
+    ];
 
     public function Profiles()
     {

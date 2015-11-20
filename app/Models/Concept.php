@@ -1,4 +1,4 @@
-<?php namespace App\Models;
+<?php namespace App\Entities;
 
 use Illuminate\Database\Eloquent\Model as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -51,7 +51,7 @@ class Concept extends Model
 
     use SoftDeletes;
 
-	protected $dates = ['deleted_at', 'last_updated'];
+    protected $dates = ['deleted_at', 'last_updated'];
 
 
     protected $fillable = array('deleted_at', 'last_updated', 'uri', 'pref_label', 'is_top_concept', 'language');
@@ -64,20 +64,24 @@ class Concept extends Model
      */
     protected $casts = [
         "id" => "integer",
-		"created_user_id" => "integer",
-		"updated_user_id" => "integer",
-		"uri" => "string",
-		"pref_label" => "string",
-		"vocabulary_id" => "integer",
-		"is_top_concept" => "boolean",
-		"pref_label_id" => "integer",
-		"status_id" => "integer",
-		"language" => "string"
+        "created_user_id" => "integer",
+        "updated_user_id" => "integer",
+        "uri" => "string",
+        "pref_label" => "string",
+        "vocabulary_id" => "integer",
+        "is_top_concept" => "boolean",
+        "pref_label_id" => "integer",
+        "status_id" => "integer",
+        "language" => "string"
     ];
 
-	public static $rules = [
-	    
-	];
+    public static $rules = [
+        "updated_at" => "required|",
+        "uri" => "required|max:255",
+        "pref_label" => "required|max:255",
+        "status_id" => "required|",
+        "language" => "required|max:6"
+    ];
 
     public function Vocabulary()
     {
@@ -89,7 +93,7 @@ class Concept extends Model
         return $this->belongsTo('App\Models\User', 'created_user_id', 'id');
     }
 
-    public function PrefLabelConceptProperty()
+    public function PrefLabelProperty()
     {
         return $this->belongsTo('App\Models\ConceptProperty', 'pref_label_id', 'id');
     }
@@ -104,22 +108,22 @@ class Concept extends Model
         return $this->belongsTo('App\Models\Status', 'status_id', 'id');
     }
 
-    public function ConceptProperties()
+    public function Properties()
     {
         return $this->hasMany('App\Models\ConceptProperty', 'concept_id', 'id');
     }
 
-    public function RelatedConceptProperties()
+    public function RelatedProperties()
     {
         return $this->hasMany('App\Models\ConceptProperty', 'related_concept_id', 'id');
     }
 
-    public function RelatedConceptPropertyHistories()
+    public function RelatedPropertyHistory()
     {
         return $this->hasMany('App\Models\ConceptPropertyHistory', 'related_concept_id', 'id');
     }
 
-    public function ConceptPropertyHistories()
+    public function History()
     {
         return $this->hasMany('App\Models\ConceptPropertyHistory', 'concept_id', 'id');
     }
