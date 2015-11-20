@@ -29,6 +29,8 @@ use Prettus\Repository\Traits\TransformableTrait;
  */
 class Status extends Model implements Transformable
 {
+    use TransformableTrait;
+
     protected $table = 'reg_status';
 
     protected $fillable = array('display_order', 'display_name', 'uri');
