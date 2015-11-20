@@ -49,7 +49,7 @@ return [
     |
     */
 
-    'namespace_model'          => 'App\Models',
+    'namespace_model'          => 'App\Entities',
 
     'namespace_repository'     => 'App\Libraries\Repositories',
 
@@ -70,7 +70,7 @@ return [
     |
     | e.g.
     | 'model_extend' => true,
-    | 'model_extend_namespace' => 'App\Models\AppBaseModel as AppBaseModel',
+    | 'model_extend_namespace' => 'App\Entities\AppBaseModel as AppBaseModel',
     | 'model_extend_class' => 'AppBaseModel',
     |
     */

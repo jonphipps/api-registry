@@ -2,7 +2,8 @@
 
 use Illuminate\Database\Eloquent\Model as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
 /**
  * App\Entities\ElementSet
  *
@@ -68,9 +69,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\ElementSet whereLanguages($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\ElementSet whereRepo($value)
  */
-class ElementSet extends Model
+class ElementSet extends Model implements Transformable
 {
     use SoftDeletes;
+    use TransformableTrait;
 
     public $table = "reg_schema";
 
@@ -107,22 +109,22 @@ class ElementSet extends Model
         "repo" => "string"
     ];
 
-	public static $rules = [
-	    "agent_id" => "required|",
-		"name" => "required|max:255",
-		"note" => "max:65535",
-		"uri" => "required|max:255",
-		"url" => "max:255",
-		"base_domain" => "required|max:255",
-		"token" => "required|max:45",
-		"community" => "max:45",
-		"status_id" => "required|",
-		"language" => "required|max:6",
-		"ns_type" => "required|max:6",
-		"prefixes" => "max:65535",
-		"languages" => "max:65535",
-		"repo" => "required|max:255"
-	];
+    public static $rules = [
+        "agent_id" => "required|",
+        "name" => "required|max:255",
+        "note" => "max:65535",
+        "uri" => "required|max:255",
+        "url" => "max:255",
+        "base_domain" => "required|max:255",
+        "token" => "required|max:45",
+        "community" => "max:45",
+        "status_id" => "required|",
+        "language" => "required|max:6",
+        "ns_type" => "required|max:6",
+        "prefixes" => "max:65535",
+        "languages" => "max:65535",
+        "repo" => "required|max:255"
+    ];
 
     public function UserCreator()
     {

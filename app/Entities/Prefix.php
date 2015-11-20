@@ -2,7 +2,8 @@
 
 use Illuminate\Database\Eloquent\Model as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
 /**
  * App\Entities\Prefix
  *
@@ -13,7 +14,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\Prefix whereUri($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\Prefix whereRank($value)
  */
-class Prefix extends Model
+class Prefix extends Model implements Transformable
 {
     protected $table = 'reg_prefix';
 
@@ -23,8 +24,14 @@ class Prefix extends Model
 
     public $incrementing = false;
 
-    protected $fillable = array('uri', 'rank');
-    
+
+
+    public $fillable = [
+        "prefix",
+        "uri",
+        "rank"
+    ];
+
     /**
      * The attributes that should be casted to native types.
      *
@@ -37,7 +44,8 @@ class Prefix extends Model
     ];
 
     public static $rules = [
-
+        "prefix" => "required|max:40",
+        "uri" => "max:256"
     ];
 
 }

@@ -49,7 +49,7 @@ class ElementProperty extends Model
 
     protected $table = 'reg_schema_property_element';
     
-	protected $dates = ['deleted_at'];
+    protected $dates = ['deleted_at'];
 
 
     protected $fillable = array('deleted_at', 'is_schema_property', 'object', 'language', 'is_generated');
@@ -62,21 +62,21 @@ class ElementProperty extends Model
      */
     protected $casts = [
         "id" => "integer",
-		"created_user_id" => "integer",
-		"updated_user_id" => "integer",
-		"schema_property_id" => "integer",
-		"profile_property_id" => "integer",
-		"is_schema_property" => "boolean",
-		"object" => "string",
-		"related_schema_property_id" => "integer",
-		"language" => "string",
-		"status_id" => "integer",
-		"is_generated" => "boolean"
+        "created_user_id" => "integer",
+        "updated_user_id" => "integer",
+        "schema_property_id" => "integer",
+        "profile_property_id" => "integer",
+        "is_schema_property" => "boolean",
+        "object" => "string",
+        "related_schema_property_id" => "integer",
+        "language" => "string",
+        "status_id" => "integer",
+        "is_generated" => "boolean"
     ];
 
-	public static $rules = [
-	    
-	];
+    public static $rules = [
+
+    ];
 
     public function ProfileProperty()
     {

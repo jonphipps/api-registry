@@ -2,7 +2,8 @@
 
 use Illuminate\Database\Eloquent\Model as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
 /**
  * App\Entities\ElementProperty
  *
@@ -43,12 +44,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\ElementProperty whereStatusId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\ElementProperty whereIsGenerated($value)
  */
-class ElementProperty extends Model
+class ElementProperty extends Model implements Transformable
 {
     use SoftDeletes;
+    use TransformableTrait;
 
     protected $table = 'reg_schema_property_element';
-    
+
     protected $dates = ['deleted_at'];
 
 
@@ -75,7 +77,12 @@ class ElementProperty extends Model
     ];
 
     public static $rules = [
-
+        "updated_at" => "required|",
+        "schema_property_id" => "required|",
+        "profile_property_id" => "required|",
+        "object" => "max:65535",
+        "language" => "required|max:6",
+        "is_generated" => "required|"
     ];
 
     public function ProfileProperty()

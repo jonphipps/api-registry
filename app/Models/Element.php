@@ -69,12 +69,12 @@ class Element extends Model
 
     protected $table = 'reg_schema_property';
     
-	protected $dates = ['deleted_at'];
+    protected $dates = ['deleted_at'];
 
 
     protected $fillable = array('deleted_at', 'name', 'label', 'definition', 'comment', 'type', 'parent_uri', 'uri',
         'language', 'note', 'domain', 'orange', 'is_deprecated', 'url', 'lexical_alias');
-	
+
     /**
      * The attributes that should be casted to native types.
      *
@@ -82,30 +82,30 @@ class Element extends Model
      */
     protected $casts = [
         "id" => "integer",
-		"created_user_id" => "integer",
-		"updated_user_id" => "integer",
-		"schema_id" => "integer",
-		"name" => "string",
-		"label" => "string",
-		"definition" => "string",
-		"comment" => "string",
-		"type" => "string",
-		"is_subproperty_of" => "integer",
-		"parent_uri" => "string",
-		"uri" => "string",
-		"status_id" => "integer",
-		"language" => "string",
-		"note" => "string",
-		"domain" => "string",
-		"orange" => "string",
-		"is_deprecated" => "boolean",
-		"url" => "string",
-		"lexical_alias" => "string"
+        "created_user_id" => "integer",
+        "updated_user_id" => "integer",
+        "schema_id" => "integer",
+        "name" => "string",
+        "label" => "string",
+        "definition" => "string",
+        "comment" => "string",
+        "type" => "string",
+        "is_subproperty_of" => "integer",
+        "parent_uri" => "string",
+        "uri" => "string",
+        "status_id" => "integer",
+        "language" => "string",
+        "note" => "string",
+        "domain" => "string",
+        "orange" => "string",
+        "is_deprecated" => "boolean",
+        "url" => "string",
+        "lexical_alias" => "string"
     ];
 
-	public static $rules = [
-	    
-	];
+    public static $rules = [
+
+    ];
 
     public function UserCreator()
     {

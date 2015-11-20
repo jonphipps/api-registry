@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Libraries\Repositories\ConceptRepository;
-use App\Libraries\Repositories\ElementRepository;
+use App\Repositories\ConceptRepository;
+use App\Repositories\ElementRepository;
 use Dingo\Api\Http\Request;
 use Casa\Controller\AppBaseController as AppBaseController;
 use Dingo\Api\Routing\Helpers;

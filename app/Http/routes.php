@@ -68,10 +68,10 @@ Route::get('/generate/models', '\\Jimbolino\\Laravel\\ModelBuilder\\ModelGenerat
 //
 //Route::group(['prefix' => 'api', 'namespace' => 'API'], function ()
 //{
-//	Route::group(['prefix' => 'v1'], function ()
-//	{
+//    Route::group(['prefix' => 'v1'], function ()
+//    {
 //        require Config::get('generator.path_api_routes');
-//	});
+//    });
 //});
 
 /*

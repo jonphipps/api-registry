@@ -2,7 +2,8 @@
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
 /**
  * App\Entities\Collection
  *
@@ -35,11 +36,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\Collection wherePrefLabel($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\Collection whereStatusId($value)
  */
-class Collection extends Model
+class Collection extends Model implements Transformable
 {
     protected $table = 'reg_collection';
 
     use SoftDeletes;
+    use TransformableTrait;
 
     public function getDates()
     {
@@ -47,6 +49,29 @@ class Collection extends Model
     }
 
     protected $fillable = array('deleted_at', 'last_updated', 'name', 'uri', 'pref_label');
+
+    /**
+     * The attributes that should be casted to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        "id" => "integer",
+        "created_user_id" => "integer",
+        "updated_user_id" => "integer",
+        "vocabulary_id" => "integer",
+        "name" => "string",
+        "uri" => "string",
+        "pref_label" => "string",
+        "status_id" => "integer"
+    ];
+
+    public static $rules = [
+        "name" => "required|max:255",
+        "uri" => "max:255",
+        "pref_label" => "required|max:255",
+        "status_id" => "required|"
+    ];
 
     public function UserCreator()
     {

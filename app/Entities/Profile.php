@@ -2,7 +2,8 @@
 
 use Illuminate\Database\Eloquent\Model as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
 /**
  * App\Entities\Profile
  *
@@ -55,13 +56,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\Profile whereStatusId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\Profile whereLanguage($value)
  */
-class Profile extends Model
+class Profile extends Model implements Transformable
 {
     use SoftDeletes;
+    use TransformableTrait;
 
     protected $table = 'profile';
-    
-	protected $dates = ['deleted_at'];
+
+    protected $dates = ['deleted_at'];
 
 
     protected $fillable = array('deleted_at', 'name', 'note', 'uri', 'url', 'base_domain', 'token',
@@ -74,26 +76,35 @@ class Profile extends Model
      */
     protected $casts = [
         "id" => "integer",
-		"agent_id" => "integer",
-		"created_by" => "integer",
-		"updated_by" => "integer",
-		"deleted_by" => "integer",
-		"child_updated_by" => "integer",
-		"name" => "string",
-		"note" => "string",
-		"uri" => "string",
-		"url" => "string",
-		"base_domain" => "string",
-		"token" => "string",
-		"community" => "string",
-		"last_uri_id" => "integer",
-		"status_id" => "integer",
-		"language" => "string"
+        "agent_id" => "integer",
+        "created_by" => "integer",
+        "updated_by" => "integer",
+        "deleted_by" => "integer",
+        "child_updated_by" => "integer",
+        "name" => "string",
+        "note" => "string",
+        "uri" => "string",
+        "url" => "string",
+        "base_domain" => "string",
+        "token" => "string",
+        "community" => "string",
+        "last_uri_id" => "integer",
+        "status_id" => "integer",
+        "language" => "string"
     ];
 
-	public static $rules = [
-	    
-	];
+    public static $rules = [
+        "agent_id" => "required|",
+        "name" => "required|max:255",
+        "note" => "max:65535",
+        "uri" => "required|max:255",
+        "url" => "max:255",
+        "base_domain" => "required|max:255",
+        "token" => "required|max:45",
+        "community" => "max:45",
+        "status_id" => "required|",
+        "language" => "required|max:6"
+    ];
 
     public function Agent()
     {

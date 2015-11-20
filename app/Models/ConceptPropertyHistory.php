@@ -60,24 +60,24 @@ class ConceptPropertyHistory extends Model
      */
     protected $casts = [
         "id" => "integer",
-		"action" => "string",
-		"concept_property_id" => "integer",
-		"concept_id" => "integer",
-		"vocabulary_id" => "integer",
-		"skos_property_id" => "integer",
-		"object" => "string",
-		"scheme_id" => "integer",
-		"related_concept_id" => "integer",
-		"language" => "string",
-		"status_id" => "integer",
-		"created_user_id" => "integer",
-		"change_note" => "string",
-		"import_id" => "integer"
+        "action" => "string",
+        "concept_property_id" => "integer",
+        "concept_id" => "integer",
+        "vocabulary_id" => "integer",
+        "skos_property_id" => "integer",
+        "object" => "string",
+        "scheme_id" => "integer",
+        "related_concept_id" => "integer",
+        "language" => "string",
+        "status_id" => "integer",
+        "created_user_id" => "integer",
+        "change_note" => "string",
+        "import_id" => "integer"
     ];
 
-	public static $rules = [
-	    
-	];
+    public static $rules = [
+
+    ];
 
 
     /** ===============

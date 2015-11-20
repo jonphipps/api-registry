@@ -2,7 +2,8 @@
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
 /**
  * App\Entities\VocabularyHasVersion
  *
@@ -25,18 +26,33 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\VocabularyHasVersion whereVocabularyId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\VocabularyHasVersion whereTimeslice($value)
  */
-class VocabularyHasVersion extends Model
+class VocabularyHasVersion extends Model implements Transformable
 {
     protected $table = 'reg_vocabulary_has_version';
 
     use SoftDeletes;
+    use TransformableTrait;
 
-    public function getDates()
-    {
-        return array('deleted_at', 'timeslice');
-    }
+    protected $dates = ['deleted_at'];
+
 
     protected $fillable = array('name', 'deleted_at', 'timeslice');
+
+    /**
+     * The attributes that should be casted to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        "id" => "integer",
+        "name" => "string",
+        "created_user_id" => "integer",
+        "vocabulary_id" => "integer"
+    ];
+
+    public static $rules = [
+        "name" => "required|max:255"
+    ];
 
     public function UserCreator()
     {

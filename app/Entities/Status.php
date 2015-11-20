@@ -2,7 +2,8 @@
 
 use Illuminate\Database\Eloquent\Model as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
 /**
  * App\Entities\Status
  *
@@ -26,7 +27,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\Status whereDisplayName($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\Status whereUri($value)
  */
-class Status extends Model
+class Status extends Model implements Transformable
 {
     protected $table = 'reg_status';
 
@@ -46,7 +47,8 @@ class Status extends Model
     ];
 
     public static $rules = [
-
+        "display_name" => "max:255",
+        "uri" => "max:255"
     ];
 
     public function profiles()

@@ -2,7 +2,8 @@
 
 use Illuminate\Database\Eloquent\Model as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
 /**
  * App\Entities\Vocabulary
  *
@@ -71,12 +72,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\Vocabulary whereRepos($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\Vocabulary whereRepo($value)
  */
-class Vocabulary extends Model
+class Vocabulary extends Model implements Transformable
 {
     use SoftDeletes;
+    use TransformableTrait;
 
     protected $table = 'reg_vocabulary';
-    
+
     protected $dates = ['deleted_at', 'last_updated'];
 
 
@@ -115,7 +117,22 @@ class Vocabulary extends Model
     ];
 
     public static $rules = [
-
+        "agent_id" => "required|",
+        "last_updated" => "required|",
+        "name" => "required|max:255",
+        "note" => "max:65535",
+        "uri" => "required|max:255",
+        "url" => "max:255",
+        "base_domain" => "required|max:255",
+        "token" => "required|max:45",
+        "community" => "max:45",
+        "status_id" => "required|",
+        "language" => "required|max:6",
+        "languages" => "max:65535",
+        "ns_type" => "required|",
+        "prefixes" => "max:65535",
+        "repos" => "max:256",
+        "repo" => "max:256"
     ];
 
     public function UserCreator()

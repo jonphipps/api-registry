@@ -2,7 +2,8 @@
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
 /**
  * App\Entities\VocabularyHasUser
  *
@@ -33,19 +34,46 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\VocabularyHasUser whereDefaultLanguage($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\VocabularyHasUser whereCurrentLanguage($value)
  */
-class VocabularyHasUser extends Model
+class VocabularyHasUser extends Model implements Transformable
 {
     protected $table = 'reg_vocabulary_has_user';
 
     use SoftDeletes;
+    use TransformableTrait;
 
-    public function getDates()
-    {
-        return array('deleted_at');
-    }
+
+
+    protected $dates = ['deleted_at'];
+
 
     protected $fillable = array('deleted_at', 'is_maintainer_for', 'is_registrar_for', 'is_admin_for', 'languages',
         'default_language', 'current_language');
+
+    /**
+     * The attributes that should be casted to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        "id" => "integer",
+        "vocabulary_id" => "integer",
+        "user_id" => "integer",
+        "is_maintainer_for" => "boolean",
+        "is_registrar_for" => "boolean",
+        "is_admin_for" => "boolean",
+        "languages" => "string",
+        "default_language" => "string",
+        "current_language" => "string"
+    ];
+
+    public static $rules = [
+        "updated_at" => "required|",
+        "vocabulary_id" => "required|",
+        "user_id" => "required|",
+        "languages" => "max:65535",
+        "default_language" => "max:6",
+        "current_language" => "max:6"
+    ];
 
     public function User()
     {

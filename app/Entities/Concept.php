@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
+use Prettus\Repository\Contracts\Presentable;
+use Prettus\Repository\Traits\PresentableTrait;
+use App\Presenters\ConceptPresenter;
 
 /**
  * App\Entities\Concept
@@ -49,17 +52,17 @@ use Prettus\Repository\Traits\TransformableTrait;
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\Concept whereStatusId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\Concept whereLanguage($value)
  */
-class Concept extends Model implements Transformable
+class Concept extends Model implements Transformable, Presentable
 {
     use SoftDeletes;
     use TransformableTrait;
+    use PresentableTrait;
 
     protected $table = 'reg_concept';
 
     protected $dates = ['deleted_at', 'last_updated'];
 
     protected $fillable = array('deleted_at', 'last_updated', 'uri', 'pref_label', 'is_top_concept', 'language');
-
 
     /**
      * The attributes that should be casted to native types.

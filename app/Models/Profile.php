@@ -61,7 +61,7 @@ class Profile extends Model
 
     protected $table = 'profile';
     
-	protected $dates = ['deleted_at'];
+    protected $dates = ['deleted_at'];
 
 
     protected $fillable = array('deleted_at', 'name', 'note', 'uri', 'url', 'base_domain', 'token',
@@ -74,26 +74,26 @@ class Profile extends Model
      */
     protected $casts = [
         "id" => "integer",
-		"agent_id" => "integer",
-		"created_by" => "integer",
-		"updated_by" => "integer",
-		"deleted_by" => "integer",
-		"child_updated_by" => "integer",
-		"name" => "string",
-		"note" => "string",
-		"uri" => "string",
-		"url" => "string",
-		"base_domain" => "string",
-		"token" => "string",
-		"community" => "string",
-		"last_uri_id" => "integer",
-		"status_id" => "integer",
-		"language" => "string"
+        "agent_id" => "integer",
+        "created_by" => "integer",
+        "updated_by" => "integer",
+        "deleted_by" => "integer",
+        "child_updated_by" => "integer",
+        "name" => "string",
+        "note" => "string",
+        "uri" => "string",
+        "url" => "string",
+        "base_domain" => "string",
+        "token" => "string",
+        "community" => "string",
+        "last_uri_id" => "integer",
+        "status_id" => "integer",
+        "language" => "string"
     ];
 
-	public static $rules = [
-	    
-	];
+    public static $rules = [
+
+    ];
 
     public function Agent()
     {

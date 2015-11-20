@@ -76,7 +76,7 @@ class User extends Model
 
     protected $table = 'reg_user';
     
-	protected $dates = ['deleted_at'];
+    protected $dates = ['deleted_at'];
 
 
     protected $fillable = array('last_updated', 'deleted_at', 'nickname', 'salutation', 'first_name', 'last_name',
@@ -91,24 +91,24 @@ class User extends Model
      */
     protected $casts = [
         "id" => "integer",
-		"nickname" => "string",
-		"salutation" => "string",
-		"first_name" => "string",
-		"last_name" => "string",
-		"email" => "string",
-		"sha1_password" => "string",
-		"salt" => "string",
-		"want_to_be_moderator" => "boolean",
-		"is_moderator" => "boolean",
-		"is_administrator" => "boolean",
-		"deletions" => "integer",
-		"password" => "string",
-		"culture" => "string"
+        "nickname" => "string",
+        "salutation" => "string",
+        "first_name" => "string",
+        "last_name" => "string",
+        "email" => "string",
+        "sha1_password" => "string",
+        "salt" => "string",
+        "want_to_be_moderator" => "boolean",
+        "is_moderator" => "boolean",
+        "is_administrator" => "boolean",
+        "deletions" => "integer",
+        "password" => "string",
+        "culture" => "string"
     ];
 
-	public static $rules = [
-	    
-	];
+    public static $rules = [
+
+    ];
 
     public function ProfilesUpdated()
     {

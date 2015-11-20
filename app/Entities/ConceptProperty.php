@@ -2,7 +2,8 @@
 
 use Illuminate\Database\Eloquent\Model as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
 /**
  * App\Entities\ConceptProperty
  *
@@ -49,12 +50,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\ConceptProperty whereStatusId($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\ConceptProperty whereIsConceptProperty($value)
  */
-class ConceptProperty extends Model
+class ConceptProperty extends Model implements Transformable
 {
     use SoftDeletes;
+    use TransformableTrait;
 
     protected $table = 'reg_concept_property';
-    
+
     protected $dates = ['deleted_at', 'last_updated'];
 
 
@@ -84,7 +86,12 @@ class ConceptProperty extends Model
     ];
 
     public static $rules = [
-
+        "updated_at" => "required|",
+        "concept_id" => "required|",
+        "skos_property_id" => "required|",
+        "object" => "max:65535",
+        "language" => "max:6",
+        "is_concept_property" => "required|"
     ];
 
 

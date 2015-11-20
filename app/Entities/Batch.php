@@ -37,6 +37,29 @@ class Batch extends \Illuminate\Database\Eloquent\Model
     protected $fillable = array('run_time', 'run_description', 'object_type', 'object_id', 'event_time', 'event_type',
         'event_description', 'istry_uri');
 
+    /**
+     * The attributes that should be casted to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        "id" => "integer",
+        "run_description" => "string",
+        "object_type" => "string",
+        "object_id" => "integer",
+        "event_type" => "string",
+        "event_description" => "string",
+        "registry_uri" => "string"
+    ];
+
+    public static $rules = [
+        "run_description" => "max:65535",
+        "object_type" => "max:20",
+        "event_type" => "max:20",
+        "event_description" => "max:65535",
+        "registry_uri" => "max:255"
+    ];
+
     public function FileImportHistory()
     {
         return $this->hasMany('App\Entities\FileImportHistory', 'batch_id', 'id');

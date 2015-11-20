@@ -2,7 +2,8 @@
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
 /**
  * App\Entities\RdfNamespace
  *
@@ -28,11 +29,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\RdfNamespace whereUri($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\RdfNamespace whereSchemaLocation($value)
  */
-class RdfNamespace extends Model
+class RdfNamespace extends Model implements Transformable
 {
     protected $table = 'reg_rdf_namespace';
 
     use SoftDeletes;
+    use TransformableTrait;
 
     public function getDates()
     {

@@ -2,7 +2,8 @@
 
 use Illuminate\Database\Eloquent\Model as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
 /**
  * App\Entities\Element
  *
@@ -63,9 +64,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\Element whereUrl($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\Element whereLexicalAlias($value)
  */
-class Element extends Model
+class Element extends Model implements Transformable
 {
     use SoftDeletes;
+    use TransformableTrait;
 
     protected $table = 'reg_schema_property';
 
@@ -103,24 +105,24 @@ class Element extends Model
         "lexical_alias" => "string"
     ];
 
-	public static $rules = [
-	    "updated_at" => "required|",
-		"schema_id" => "required|",
-		"name" => "required|max:255",
-		"label" => "required|max:255",
-		"definition" => "max:65535",
-		"comment" => "max:65535",
-		"type" => "required|max:15",
-		"parent_uri" => "max:255",
-		"uri" => "required|max:255",
-		"status_id" => "required|",
-		"language" => "required|max:6",
-		"note" => "max:65535",
-		"domain" => "max:255",
-		"orange" => "max:255",
-		"url" => "max:255",
-		"lexical_alias" => "max:255"
-	];
+    public static $rules = [
+        "updated_at" => "required|",
+        "schema_id" => "required|",
+        "name" => "required|max:255",
+        "label" => "required|max:255",
+        "definition" => "max:65535",
+        "comment" => "max:65535",
+        "type" => "required|max:15",
+        "parent_uri" => "max:255",
+        "uri" => "required|max:255",
+        "status_id" => "required|",
+        "language" => "required|max:6",
+        "note" => "max:65535",
+        "domain" => "max:255",
+        "orange" => "max:255",
+        "url" => "max:255",
+        "lexical_alias" => "max:255"
+    ];
 
     public function UserCreator()
     {

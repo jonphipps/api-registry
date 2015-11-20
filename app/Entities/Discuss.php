@@ -2,7 +2,8 @@
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
 
 /**
  * App\Entities\Discuss
@@ -52,21 +53,63 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\Discuss whereSubject($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\Discuss whereContent($value)
  */
-class Discuss extends Model
+class Discuss extends Model implements Transformable
 {
     protected $table = 'reg_discuss';
 
     use SoftDeletes;
+    use TransformableTrait;
 
-    public function getDates()
-    {
-        return array('deleted_at');
-    }
+    protected $dates = ['deleted_at'];
 
-    protected $fillable = array('deleted_at', 'uri', 'subject', 'content');
+    protected $fillable = [
+        "id",
+        "created_at",
+        "updated_at",
+        "deleted_at",
+        "created_user_id",
+        "deleted_user_id",
+        "uri",
+        "schema_id",
+        "schema_property_id",
+        "schema_property_element_id",
+        "vocabulary_id",
+        "concept_id",
+        "concept_property_id",
+        "root_id",
+        "parent_id",
+        "subject",
+        "content"
+    ];
 
-    public function UserCreayed()
-    {
+    /**
+     * The attributes that should be casted to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        "id" => "integer",
+        "created_user_id" => "integer",
+        "deleted_user_id" => "integer",
+        "uri" => "string",
+        "schema_id" => "integer",
+        "schema_property_id" => "integer",
+        "schema_property_element_id" => "integer",
+        "vocabulary_id" => "integer",
+        "concept_id" => "integer",
+        "concept_property_id" => "integer",
+        "root_id" => "integer",
+        "parent_id" => "integer",
+        "subject" => "string",
+        "content" => "string"
+    ];
+
+    public static $rules = [
+        "uri" => "max:255",
+        "subject" => "max:255",
+        "content" => "max:65535"
+    ];
+
         return $this->belongsTo('App\Entities\User', 'created_user_id', 'id');
     }
 

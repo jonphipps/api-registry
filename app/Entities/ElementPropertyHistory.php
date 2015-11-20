@@ -2,7 +2,8 @@
 
 use Illuminate\Database\Eloquent\Model as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
 /**
  * App\Entities\ElementPropertyHistory
  *
@@ -43,7 +44,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\ElementPropertyHistory whereChangeNote($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\ElementPropertyHistory whereImportId($value)
  */
-class ElementPropertyHistory extends Model
+class ElementPropertyHistory extends Model implements Transformable
 {
 
     protected $table = 'reg_schema_property_element_history';
@@ -72,7 +73,10 @@ class ElementPropertyHistory extends Model
     ];
 
     public static $rules = [
-
+        "created_at" => "required|",
+        "object" => "max:65535",
+        "language" => "required|max:6",
+        "change_note" => "max:65535"
     ];
 
     public function UserCreator()

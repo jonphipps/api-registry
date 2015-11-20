@@ -55,7 +55,7 @@ class ConceptProperty extends Model
 
     protected $table = 'reg_concept_property';
     
-	protected $dates = ['deleted_at', 'last_updated'];
+    protected $dates = ['deleted_at', 'last_updated'];
 
 
     protected $fillable = array('deleted_at', 'last_updated', 'primary_pref_label', 'object', 'language',
@@ -70,22 +70,22 @@ class ConceptProperty extends Model
      */
     protected $casts = [
         "id" => "integer",
-		"created_user_id" => "integer",
-		"updated_user_id" => "integer",
-		"concept_id" => "integer",
-		"primary_pref_label" => "boolean",
-		"skos_property_id" => "integer",
-		"object" => "string",
-		"scheme_id" => "integer",
-		"related_concept_id" => "integer",
-		"language" => "string",
-		"status_id" => "integer",
-		"is_concept_property" => "boolean"
+        "created_user_id" => "integer",
+        "updated_user_id" => "integer",
+        "concept_id" => "integer",
+        "primary_pref_label" => "boolean",
+        "skos_property_id" => "integer",
+        "object" => "string",
+        "scheme_id" => "integer",
+        "related_concept_id" => "integer",
+        "language" => "string",
+        "status_id" => "integer",
+        "is_concept_property" => "boolean"
     ];
 
-	public static $rules = [
-	    
-	];
+    public static $rules = [
+
+    ];
 
 
     /** ===============

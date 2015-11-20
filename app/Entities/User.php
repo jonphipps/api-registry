@@ -2,7 +2,8 @@
 
 use Illuminate\Database\Eloquent\Model as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
 /**
  * App\Entities\User
  *
@@ -70,9 +71,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\User wherePassword($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\User whereCulture($value)
  */
-class User extends Model
+class User extends Model implements Transformable
 {
     use SoftDeletes;
+    use TransformableTrait;
 
     protected $table = 'reg_user';
 
@@ -106,18 +108,18 @@ class User extends Model
         "culture" => "string"
     ];
 
-	public static $rules = [
-	    "last_updated" => "required|",
-		"nickname" => "max:50",
-		"salutation" => "max:5",
-		"first_name" => "max:100",
-		"last_name" => "max:100",
-		"email" => "email|max:100",
-		"sha1_password" => "max:40",
-		"salt" => "max:32",
-		"password" => "max:40",
-		"culture" => "max:7"
-	];
+    public static $rules = [
+        "last_updated" => "required|",
+        "nickname" => "max:50",
+        "salutation" => "max:5",
+        "first_name" => "max:100",
+        "last_name" => "max:100",
+        "email" => "email|max:100",
+        "sha1_password" => "max:40",
+        "salt" => "max:32",
+        "password" => "max:40",
+        "culture" => "max:7"
+    ];
 
     public function ProfilesUpdated()
     {

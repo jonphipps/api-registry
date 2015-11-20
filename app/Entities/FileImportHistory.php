@@ -2,7 +2,8 @@
 
 use Illuminate\Database\Eloquent\Model as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
 /**
  * App\Entities\FileImportHistory
  *
@@ -41,10 +42,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\FileImportHistory whereErrorCount($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\FileImportHistory whereSuccessCount($value)
  */
-class FileImportHistory extends Model
+class FileImportHistory extends Model implements Transformable
 {
     protected $table = 'reg_file_import_history';
-    
+
     protected $fillable = array('map', 'file_name', 'source_file_name', 'file_type', 'results', 'total_processed_count',
         'error_count', 'success_count');
 
@@ -70,7 +71,11 @@ class FileImportHistory extends Model
     ];
 
     public static $rules = [
-
+        "map" => "max:65535",
+        "file_name" => "max:255",
+        "source_file_name" => "max:255",
+        "file_type" => "max:30",
+        "results" => "max:65535"
     ];
 
     public function User()

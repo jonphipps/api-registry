@@ -2,7 +2,8 @@
 
 use Illuminate\Database\Eloquent\Model as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
 /**
  * App\Entities\Agent
  *
@@ -45,12 +46,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\Agent whereWebAddress($value)
  * @method static \Illuminate\Database\Query\Builder|\App\Entities\Agent whereType($value)
  */
-class Agent extends Model
+class Agent extends Model implements Transformable
 {
     use SoftDeletes;
+    use TransformableTrait;
 
     protected $table = 'reg_agent';
-    
+
     protected $dates = ['deleted_at', 'last_updated'];
 
 
@@ -80,7 +82,20 @@ class Agent extends Model
     ];
 
     public static $rules = [
-
+        "last_updated" => "required|",
+        "org_email" => "required|max:100",
+        "org_name" => "required|max:255",
+        "ind_affiliation" => "max:255",
+        "ind_role" => "max:45",
+        "address1" => "max:255",
+        "address2" => "max:255",
+        "city" => "max:45",
+        "state" => "max:2",
+        "postal_code" => "max:15",
+        "country" => "max:3",
+        "phone" => "max:45",
+        "web_address" => "max:255",
+        "type" => "max:15"
     ];
 
     public function Profiles()
